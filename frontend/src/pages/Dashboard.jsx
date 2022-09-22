@@ -2,18 +2,18 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import GoalForm from '../components/GoalForm';
+import WorkoutForm from '../components/WorkoutForm';
 import Spinner from '../components/Spinner';
-import { getGoals, reset } from '../features/goals/goalSlice';
-import GoalItem from '../components/GoalItem';
+import { getWorkouts, reset } from '../features/workouts/workoutSlice';
+import WorkoutItem from '../components/WorkoutItem';
 
 function Dashboard() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const { user } = useSelector((state) => state.auth);
-    const { goals, isLoading, isError, message } = useSelector(
-        (state) => state.goals
+    const { workouts, isLoading, isError, message } = useSelector(
+        (state) => state.workouts
     );
 
     useEffect(() => {
@@ -23,7 +23,7 @@ function Dashboard() {
         if (!user) {
             navigate('/login');
         } else {
-            dispatch(getGoals());
+            dispatch(getWorkouts());
         }
 
         return () => dispatch(reset());
@@ -37,20 +37,20 @@ function Dashboard() {
         <>
             <section className='heading'>
                 <h1>Welcome {user && user.name}</h1>
-                <p>Goals Dashboard</p>
+                <p>Workouts Dashboard</p>
             </section>
 
-            <GoalForm />
+            <WorkoutForm />
 
             <section className='content'>
-                {goals.length > 0 ? (
-                    <div className='goals'>
-                        {goals.map((goal) => (
-                            <GoalItem key={goal._id} goal={goal} />
+                {workouts.length > 0 ? (
+                    <div className='workouts'>
+                        {workouts.map((workout) => (
+                            <WorkoutItem key={workout._id} workout={workout} />
                         ))}
                     </div>
                 ) : (
-                    <h3>You have not set any goals</h3>
+                    <h3>You have not set any workouts</h3>
                 )}
             </section>
         </>

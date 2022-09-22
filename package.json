@@ -1,6 +1,6 @@
 {
-    "name": "mern-stack",
-    "version": "1.0.0",
+    "name": "summer-bod",
+    "version": "0.0.1",
     "main": "server.js",
     "scripts": {
         "start": "node ./backend/server.js",
