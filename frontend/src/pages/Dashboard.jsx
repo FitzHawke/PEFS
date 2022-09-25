@@ -6,6 +6,7 @@ import WorkoutForm from '../components/WorkoutForm';
 import Spinner from '../components/Spinner';
 import { getWorkouts, reset } from '../features/workouts/workoutSlice';
 import WorkoutItem from '../components/WorkoutItem';
+import { toast } from 'react-toastify';
 
 function Dashboard() {
     const navigate = useNavigate();
@@ -18,7 +19,7 @@ function Dashboard() {
 
     useEffect(() => {
         if (isError) {
-            console.log(message);
+            toast.error(message);
         }
         if (!user) {
             navigate('/login');

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const runSchema = mongoose.Schema(
+const rideSchema = mongoose.Schema(
     {
         user: {
             type: mongoose.Schema.Types.ObjectId,
@@ -24,4 +24,4 @@ const runSchema = mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model('Run', runSchema);
+module.exports = mongoose.model('Ride', rideSchema);
