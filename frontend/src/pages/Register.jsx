@@ -131,7 +131,7 @@ function Register() {
             />
           </div>
           <div className="form-control">
-            <button type="submit" className="btn btn-wide mx-auto my-4">
+            <button type="submit" className="btn btn-primary btn-wide mx-auto my-4">
               Signup
             </button>
           </div>
