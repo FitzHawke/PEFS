@@ -20,7 +20,7 @@ function Header() {
       <div className="flex-1">
         <div className="logo">
           <Link to="/" className="btn btn-ghost normal-case text-xl">
-            PeFV
+            <img src="/PEFS_logo_black.png" className='max-h-12 w-auto' alt="Logo" />
           </Link>
         </div>
       </div>

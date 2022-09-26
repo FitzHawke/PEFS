@@ -70,7 +70,7 @@ function Login() {
       </section>
 
       <section className="flex justify-center">
-        <form onSubmit={onSubmit}>
+        <form className='form-control form-control-lg' onSubmit={onSubmit}>
           <div className="form-control my-2">
             <label className="label">
               <span className="label-text">Your Email</span>

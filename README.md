@@ -36,7 +36,7 @@
 <h3 align="center">PEFS</h3>
 
   <p align="center">
-    A simple app to record a list of todos
+    A fitness tracking app to help along the way of getting that beach bod we all want 💪
     <br />
     <a href="https://github.com/FitzHawke/PEFS"><strong>Explore the docs »</strong></a>
     <br />
@@ -101,8 +101,6 @@ To get a local copy up and running follow these simple example steps.
 
 #### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-
 - Make a free account with [MongoDB](https://www.mongodb.com/) and create an empty database.
 
 #### Installation
@@ -120,7 +118,7 @@ This is an example of how to list things you need to use the software and how to
 3. Back to root and copy or rename `.env.example` to `.env`
    ```sh
    cd ..
-   mv .env.example .env
+   cp .env.example .env
    ```
 4. Fill out .env with your mongoDB URI
 5. Start the dev server from the root directory
@@ -153,8 +151,10 @@ This is an example of how to list things you need to use the software and how to
 ## Roadmap
 
 - [x] Switch Auth over to using passport
-- [ ] Feature 2
-- [ ] Feature 3
+- [ ] Add biking tracking
+- [ ] Add strength workout tracking
+- [ ] Seperate dashboards for each type of workout
+- [ ] Graphs for each dashboard
 
 See the [open issues](https://github.com/FitzHawke/PEFS/issues) for a full list of proposed features (and known issues).
 
