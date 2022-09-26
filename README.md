@@ -29,23 +29,23 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/FitzHawke/mern-app">
+  <a href="https://github.com/FitzHawke/PEFS">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">mern-app</h3>
+<h3 align="center">PEFS</h3>
 
   <p align="center">
     A simple app to record a list of todos
     <br />
-    <a href="https://github.com/FitzHawke/mern-app"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/FitzHawke/PEFS"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/FitzHawke/mern-app">View Demo</a>
+    <a href="https://github.com/FitzHawke/PEFS">View Demo</a>
     ·
-    <a href="https://github.com/FitzHawke/mern-app/issues">Report Bug</a>
+    <a href="https://github.com/FitzHawke/PEFS/issues">Report Bug</a>
     ·
-    <a href="https://github.com/FitzHawke/mern-app/issues">Request Feature</a>
+    <a href="https://github.com/FitzHawke/PEFS/issues">Request Feature</a>
   </p>
 </div>
 
@@ -109,7 +109,7 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/FitzHawke/mern-app.git
+   git clone https://github.com/FitzHawke/PEFS.git
    ```
 2. Install NPM packages in root directory and frontend
    ```sh
@@ -156,7 +156,7 @@ This is an example of how to list things you need to use the software and how to
 - [ ] Feature 2
 - [ ] Feature 3
 
-See the [open issues](https://github.com/FitzHawke/mern-app/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/FitzHawke/PEFS/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -191,7 +191,7 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 
 FitzHawke - [@FitzHawke](https://twitter.com/FitzHawke)
 
-Project Link: [https://github.com/FitzHawke/mern-app](https://github.com/FitzHawke/mern-app)
+Project Link: [https://github.com/FitzHawke/PEFS](https://github.com/FitzHawke/PEFS)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -208,16 +208,16 @@ Project Link: [https://github.com/FitzHawke/mern-app](https://github.com/FitzHaw
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/FitzHawke/mern-app.svg?style=for-the-badge
-[contributors-url]: https://github.com/FitzHawke/mern-app/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/FitzHawke/mern-app.svg?style=for-the-badge
-[forks-url]: https://github.com/FitzHawke/mern-app/network/members
-[stars-shield]: https://img.shields.io/github/stars/FitzHawke/mern-app.svg?style=for-the-badge
-[stars-url]: https://github.com/FitzHawke/mern-app/stargazers
-[issues-shield]: https://img.shields.io/github/issues/FitzHawke/mern-app.svg?style=for-the-badge
-[issues-url]: https://github.com/FitzHawke/mern-app/issues
-[license-shield]: https://img.shields.io/github/license/FitzHawke/mern-app.svg?style=for-the-badge
-[license-url]: https://github.com/FitzHawke/mern-app/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/FitzHawke/PEFS.svg?style=for-the-badge
+[contributors-url]: https://github.com/FitzHawke/PEFS/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/FitzHawke/PEFS.svg?style=for-the-badge
+[forks-url]: https://github.com/FitzHawke/PEFS/network/members
+[stars-shield]: https://img.shields.io/github/stars/FitzHawke/PEFS.svg?style=for-the-badge
+[stars-url]: https://github.com/FitzHawke/PEFS/stargazers
+[issues-shield]: https://img.shields.io/github/issues/FitzHawke/PEFS.svg?style=for-the-badge
+[issues-url]: https://github.com/FitzHawke/PEFS/issues
+[license-shield]: https://img.shields.io/github/license/FitzHawke/PEFS.svg?style=for-the-badge
+[license-url]: https://github.com/FitzHawke/PEFS/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/will-featherston
 [product-screenshot]: images/screenshot.png
