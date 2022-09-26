@@ -36,12 +36,6 @@ function Modal() {
     <>
       <div className={`modal modal-bottom sm:modal-middle ${extraClass}`}>
         <div className="modal-box">{modalType}</div>
-        <button
-          onClick={() => dispatch(resetModal())}
-          className="btn btn-primary btn-wide mx-auto my-4"
-        >
-          Test22
-        </button>
       </div>
     </>
   );
