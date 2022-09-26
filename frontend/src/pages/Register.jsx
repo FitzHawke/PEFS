@@ -26,7 +26,10 @@ function Register() {
 
   useEffect(() => {
     if (isError) {
-      toast.error(message);
+      toast.error(message, {
+        position: toast.POSITION.TOP_RIGHT,
+        className: 'alert alert-error',
+      });
     }
 
     if (isSuccess || user) {
@@ -131,7 +134,10 @@ function Register() {
             />
           </div>
           <div className="form-control">
-            <button type="submit" className="btn btn-primary btn-wide mx-auto my-4">
+            <button
+              type="submit"
+              className="btn btn-primary btn-wide mx-auto my-4"
+            >
               Signup
             </button>
           </div>

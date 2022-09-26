@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { login, reset } from '../features/auth/authSlice';
 import Spinner from '../components/Spinner';
+import { showModal, resetModal } from '../features/ui/modalSlice';
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -107,6 +108,12 @@ function Login() {
             </button>
           </div>
         </form>
+        <button
+          onClick={() => dispatch(showModal('run'))}
+          className="btn btn-primary btn-wide mx-auto my-4"
+        >
+          Test
+        </button>
       </section>
     </>
   );

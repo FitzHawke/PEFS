@@ -8,12 +8,13 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import NewWorkout from './pages/NewWorkout';
 import Footer from './components/Footer';
+import Modal from './components/Modal';
 
 function App() {
   return (
     <>
       <Router>
-        <div className='flex flex-col h-screen'>
+        <div className="flex flex-col h-screen">
           <Header />
           <div className="flex-grow container mx-auto">
             <Routes>
@@ -24,6 +25,7 @@ function App() {
             </Routes>
           </div>
           <Footer />
+          <Modal />
         </div>
       </Router>
       <ToastContainer />

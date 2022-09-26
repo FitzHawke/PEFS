@@ -35,7 +35,7 @@ const updateRide = asyncHandler(async (req, res) => {
 
   if (!ride) {
     res.status(400);
-    throw new Error('ride not found');
+    throw new Error('Ride not found');
   }
 
   // Check for user

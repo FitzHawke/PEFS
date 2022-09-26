@@ -19,7 +19,7 @@ function WorkoutForm() {
         <section className='form'>
             <form onSubmit={onSubmit}>
                 <div className='form-group'>
-                    <label htmlFor='text'>Workout</label>
+                    <label htmlFor='text'>Running</label>
                     <input
                         type='text'
                         name='text'
