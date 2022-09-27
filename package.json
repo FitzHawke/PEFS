@@ -23,7 +23,8 @@
         "mongoose": "^6.6.1",
         "passport": "^0.6.0",
         "passport-jwt": "^4.0.0",
-        "passport-local": "^1.0.0"
+        "passport-local": "^1.0.0",
+        "theme-change": "^2.2.0"
     },
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.7",

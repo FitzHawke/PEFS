@@ -37,8 +37,6 @@
     </picture>
   </a>
 
-<h3 align="center">PEFS</h3>
-
   <p align="center">
     A fitness tracking app to help along the way of getting that beach bod we all want 💪
     <br />

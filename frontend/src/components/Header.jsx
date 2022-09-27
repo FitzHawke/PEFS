@@ -20,7 +20,7 @@ function Header() {
       <div className="flex-1">
         <div className="logo">
           <Link to="/" className="btn btn-ghost normal-case text-xl">
-            <h1 className='font-logo text-3xl'>PEFS</h1>
+            <h1 className='font-logo text-3xl font-bold'>PEFS</h1>
           </Link>
         </div>
       </div>
