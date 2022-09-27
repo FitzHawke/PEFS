@@ -14,14 +14,18 @@ const getRuns = asyncHandler(async (req, res) => {
 //  @route  POST /api/runs
 //  @access Private
 const setRun = asyncHandler(async (req, res) => {
-  if (!req.body.text) {
+  if (!req.body.distance) {
     res.status(400);
-    throw new Error('Please add a text field');
+    throw new Error('Please add a distance field');
   }
 
   const run = await Run.create({
-    text: req.body.text,
     user: req.user.id,
+    startTime: req.body.timeStart,
+    endTime: req.body.timeEnd,
+    runTime: req.body.runTime,
+    distance: req.body.distance,
+    pace: req.body.pace,
   });
 
   res.status(200).json(run);
@@ -50,13 +54,9 @@ const updateRun = asyncHandler(async (req, res) => {
     throw new Error('User not authorized');
   }
 
-  const updatedRun = await Run.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    {
-      new: true,
-    }
-  );
+  const updatedRun = await Run.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
 
   res.status(200).json(updatedRun);
 });
@@ -84,7 +84,7 @@ const deleteRun = asyncHandler(async (req, res) => {
     throw new Error('User not authorized');
   }
 
-  await Run.remove();
+  await Run.deleteOne(run);
 
   res.status(200).json({ id: req.params.id });
 });

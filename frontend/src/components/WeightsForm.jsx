@@ -8,7 +8,7 @@ function WeightsForm() {
   return (
     <section>
       <h1>Feature not implemented yet 😞</h1>
-      <button className="btn btn-wide mx-auto my-4" onClick={()=>dispatch(resetModal())}>
+      <button className="btn btn-primary btn-wide mx-auto my-4" onClick={()=>dispatch(resetModal())}>
         closeModal
       </button>
     </section>

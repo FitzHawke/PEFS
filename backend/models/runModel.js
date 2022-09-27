@@ -7,16 +7,25 @@ const runSchema = mongoose.Schema(
             required: true,
             ref: 'User',
         },
-        time: {
+        startTime: {
             type: String,
             required: [true, 'Please add a text value'],
         },
+        endTime: {
+            type: String,
+            required: [true, 'Please add a text value'],
+        },
+        runTime: {
+            type: Number,
+            required: [true, 'Please add a number value'],
+        },
         distance: {
             type: Number,
-            required: [true, 'Please add a numerical value'],
+            required: [true, 'Please add a number value'],
         },
         pace: {
-            type: String,
+            type: Number,
+            required: [true, 'Please add a number value'],
         },
     },
     {

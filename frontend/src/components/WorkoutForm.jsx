@@ -29,19 +29,17 @@ function WorkoutForm() {
               className="dropdown-content translate-x-[-50%] left-[50%] menu p-2 shadow bg-base-100 rounded-box w-68"
             >
               <li>
-              <button className="btn btn-wide mx-auto my-4" onClick={()=>dispatch(showModal('run'))}>
-                  New Run
-                </button>
+                <a className='text-center w-60' onClick={() => dispatch(showModal('run'))}>New Run</a>
               </li>
               <li>
-                <button className="btn btn-wide mx-auto my-4" onClick={()=>dispatch(showModal('ride'))}>
+                <a className='text-center w-60' onClick={() => dispatch(showModal('ride'))}>
                   New Bike Ride
-                </button>
+                </a>
               </li>
               <li>
-              <button className="btn btn-wide mx-auto my-4" onClick={()=>dispatch(showModal('weight'))}>
+                <a className='text-center w-60' onClick={() => dispatch(showModal('weight'))}>
                   New Weightlifting Session
-                </button>
+                </a>
               </li>
             </ul>
           </div>

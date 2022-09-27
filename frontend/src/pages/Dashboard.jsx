@@ -4,17 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import WorkoutForm from '../components/WorkoutForm';
 import Spinner from '../components/Spinner';
-import { getWorkouts, reset } from '../features/workouts/workoutSlice';
-import WorkoutItem from '../components/WorkoutItem';
 import { toast } from 'react-toastify';
+import RunItem from '../components/RunItem';
+import { getRuns, reset } from '../features/runs/runSlice';
 
 function Dashboard() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth);
-  const { workouts, isLoading, isError, message } = useSelector(
-    (state) => state.workouts
+  const { runs, isLoading, isError, message } = useSelector(
+    (state) => state.run
   );
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function Dashboard() {
     if (!user) {
       navigate('/login');
     } else {
-      dispatch(getWorkouts());
+      dispatch(getRuns());
     }
 
     return () => dispatch(reset());
@@ -47,10 +47,10 @@ function Dashboard() {
       </div>
 
       <section className="content">
-        {workouts.length > 0 ? (
-          <div className="workouts">
-            {workouts.map((workout) => (
-              <WorkoutItem key={workout._id} workout={workout} />
+        {runs.length > 0 ? (
+          <div className="runs">
+            {runs.map((run) => (
+              <RunItem key={run._id} run={run} />
             ))}
           </div>
         ) : (

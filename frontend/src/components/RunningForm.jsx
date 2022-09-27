@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { createRun } from '../features/runs/runSlice';
 import { resetModal } from '../features/ui/modalSlice';
+import timeDifference from '../modules/timeDifference';
 
 function RunningForm() {
   const [formData, setFormData] = useState({
@@ -17,15 +19,26 @@ function RunningForm() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const runData = {
-      distance,
-      timeStart,
-      timeEnd,
-    };
+    if (!distance || !timeStart || !timeEnd) {
+      toast.error('Please fill out all available fields', {
+        position: toast.POSITION.TOP_RIGHT,
+        className: 'alert alert-error',
+      });
+    } else {
+      let runTime = timeDifference(timeStart, timeEnd);
+      let pace = +(distance / (runTime / 60)).toFixed(2);
 
-    console.log(timeEnd)
-    //dispatch(createRun(runData));
-    dispatch(resetModal());
+      const runData = {
+        distance: +distance,
+        timeStart,
+        timeEnd,
+        runTime,
+        pace,
+      };
+
+      dispatch(createRun(runData));
+      dispatch(resetModal());
+    }
   };
 
   const onChange = (e) => {
