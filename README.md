@@ -30,7 +30,11 @@
 <br />
 <div align="center">
   <a href="https://github.com/FitzHawke/PEFS">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/60191328/192440570-2840fb0f-8644-4584-95ff-61448ea91cb1.png">
+      <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/60191328/192440563-fce148eb-6bd9-44c8-ac41-f4264b9ec73c.png">
+      <img alt="PEFS LOGO" src="">
+    </picture>
   </a>
 
 <h3 align="center">PEFS</h3>
