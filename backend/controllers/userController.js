@@ -9,17 +9,16 @@ const User = require('../models/userModel');
 //  @access Public
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
-
   if (!name || !email || !password) {
-    res.status(400);
-    throw new Error('please fill in all fields');
+    res.status(400).json('Please fill in all fields');
+    throw new Error('RegisterNewUser: Not all fields filled');
   }
 
   // Check for existing user
   const userExists = await User.findOne({ email });
   if (userExists) {
-    res.status(400);
-    throw new Error('user already exists');
+    res.status(400).json('User already exists');
+    throw new Error('RegisterNewUser: User already exists');
   }
 
   // hash password
@@ -41,8 +40,8 @@ const registerUser = asyncHandler(async (req, res) => {
       token: generateToken(user._id),
     });
   } else {
-    res.status(400);
-    throw new Error('invalid user data');
+    res.status(400).json('Invalid user data, please try again');
+    throw new Error('RegisterNewUser: invalid user data');
   }
 });
 

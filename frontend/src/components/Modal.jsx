@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import RunningForm from './RunningForm';
 import BikingForm from './BikingForm';
 import WeightsForm from './WeightsForm';
-import { resetModal } from '../features/ui/modalSlice';
 
 function Modal() {
   const { displayModal, modalContent } = useSelector((state) => state.modal);

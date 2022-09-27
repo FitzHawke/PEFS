@@ -23,6 +23,7 @@ function RunningForm() {
       timeEnd,
     };
 
+    console.log(timeEnd)
     //dispatch(createRun(runData));
     dispatch(resetModal());
   };

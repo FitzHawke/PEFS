@@ -66,7 +66,7 @@ function Login() {
         <h1 className="text-4xl text-center">
           <FaSignInAlt className="inline pb-2" /> Sign in
         </h1>
-        <p className="text-center">Log in and start setting workouts</p>
+        <p className="text-center">Start tracking your workouts!</p>
       </section>
 
       <section className="flex justify-center">
@@ -108,12 +108,6 @@ function Login() {
             </button>
           </div>
         </form>
-        <button
-          onClick={() => dispatch(showModal('run'))}
-          className="btn btn-primary btn-wide mx-auto my-4"
-        >
-          Test
-        </button>
       </section>
     </>
   );

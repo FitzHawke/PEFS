@@ -1,41 +1,18 @@
 import React from 'react';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createWorkout } from '../features/workouts/workoutSlice';
+import { resetModal } from '../features/ui/modalSlice';
 
-function WorkoutForm() {
-    const [text, setText] = useState('');
+function BikingForm() {
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
-
-    const onSubmit = (e) => {
-        e.preventDefault();
-
-        dispatch(createWorkout({ text }));
-        setText('');
-    };
-
-    return (
-        <section className='form'>
-            <form onSubmit={onSubmit}>
-                <div className='form-group'>
-                    <label htmlFor='text'>Workout</label>
-                    <input
-                        type='text'
-                        name='text'
-                        id='text'
-                        value={text}
-                        onChange={(e) => setText(e.target.value)}
-                    />
-                </div>
-                <div className='form-group'>
-                    <button className='btn btn-block' type='submit'>
-                        Add Workout
-                    </button>
-                </div>
-            </form>
-        </section>
-    );
+  return (
+    <section>
+      <h1>Feature not implemented yet 😞</h1>
+      <button className="btn btn-primary btn-wide mx-auto my-4" onClick={()=>dispatch(resetModal())}>
+        closeModal
+      </button>
+    </section>
+  );
 }
 
-export default WorkoutForm;
+export default BikingForm;

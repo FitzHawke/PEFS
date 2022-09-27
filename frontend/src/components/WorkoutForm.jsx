@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { showModal } from '../features/ui/modalSlice';
 import { createWorkout } from '../features/workouts/workoutSlice';
 
 function WorkoutForm() {
@@ -11,7 +12,7 @@ function WorkoutForm() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(createWorkout({ text }));
+    //dispatch(createWorkout({ text }));
     setText('');
   };
 
@@ -25,16 +26,22 @@ function WorkoutForm() {
             </label>
             <ul
               tabIndex={0}
-              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+              className="dropdown-content translate-x-[-50%] left-[50%] menu p-2 shadow bg-base-100 rounded-box w-68"
             >
               <li>
-                <a href="/">Bike Ride</a>
+              <button className="btn btn-wide mx-auto my-4" onClick={()=>dispatch(showModal('run'))}>
+                  New Run
+                </button>
               </li>
               <li>
-                <a href="/">Run</a>
+                <button className="btn btn-wide mx-auto my-4" onClick={()=>dispatch(showModal('ride'))}>
+                  New Bike Ride
+                </button>
               </li>
               <li>
-                <a href="/">Weights</a>
+              <button className="btn btn-wide mx-auto my-4" onClick={()=>dispatch(showModal('weight'))}>
+                  New Weightlifting Session
+                </button>
               </li>
             </ul>
           </div>
