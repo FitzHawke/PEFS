@@ -43,7 +43,7 @@
     <a href="https://github.com/FitzHawke/PEFS"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/FitzHawke/PEFS">View Demo</a>
+    <a href="https://pefs.cyclic.app/">View Demo</a>
     ·
     <a href="https://github.com/FitzHawke/PEFS/issues">Report Bug</a>
     ·
@@ -81,7 +81,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![PEFS Screen Shot][PEFS-screenshot]](https://user-images.githubusercontent.com/60191328/192620808-2a7b295d-a7c0-4442-9488-4dcab4693844.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
