@@ -6,10 +6,10 @@ function WeightsForm() {
   const dispatch = useDispatch();
 
   return (
-    <section>
-      <h1>Feature not implemented yet 😞</h1>
+    <section className='flex flex-col align-middle justify-center'>
+      <h1 className='text-center'>Feature not implemented yet 😞</h1>
       <button className="btn btn-primary btn-wide mx-auto my-4" onClick={()=>dispatch(resetModal())}>
-        closeModal
+        Close
       </button>
     </section>
   );

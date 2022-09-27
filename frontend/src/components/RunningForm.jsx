@@ -49,7 +49,7 @@ function RunningForm() {
   };
 
   return (
-    <section className="flex justify-center">
+    <section className="flex justify-center flex-col">
       <form className="form-control form-control-lg" onSubmit={onSubmit}>
         <div className="form-control my-2">
           <label className="label">
@@ -102,6 +102,12 @@ function RunningForm() {
           </button>
         </div>
       </form>
+      <button
+        className="btn btn-error btn-wide mx-auto my-4"
+        onClick={() => dispatch(resetModal())}
+      >
+        Cancel
+      </button>
     </section>
   );
 }

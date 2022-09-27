@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Router>
-        <div className="flex flex-col h-screen">
+        <div className="flex flex-col min-h-screen">
           <Header />
           <div className="flex-grow container mx-auto">
             <Routes>

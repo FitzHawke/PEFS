@@ -70,7 +70,7 @@ function Register() {
     <>
       <section className="py-12">
         <h1 className="text-4xl text-center">
-          <FaUser className="inline pb-2" /> Register
+          <FaUser className="inline pb-2" /> Signup
         </h1>
         <p className="text-center">Please create an account</p>
       </section>

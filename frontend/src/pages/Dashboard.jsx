@@ -38,17 +38,17 @@ function Dashboard() {
     <>
       <div className="hero h-1/2 bg-base-200">
         <div className="hero-content text-center">
-          <div className="max-w-md">
+          <div className="">
             <h1 className="text-5xl font-bold">Welcome {user && user.name}</h1>
-            <p className='py-6'>Workouts Dashboard</p>
+            <p className="py-6">Workouts Dashboard</p>
             <WorkoutForm />
           </div>
         </div>
       </div>
 
-      <section className="content">
+      <section className="">
         {runs.length > 0 ? (
-          <div className="runs">
+          <div className="flex flex-row flex-wrap gap-2 justify-center">
             {runs.map((run) => (
               <RunItem key={run._id} run={run} />
             ))}
