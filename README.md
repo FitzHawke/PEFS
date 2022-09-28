@@ -157,6 +157,7 @@ To get a local copy up and running follow these simple example steps.
 - [ ] Add strength workout tracking
 - [ ] Seperate dashboards for each type of workout
 - [ ] Graphs for each dashboard
+- [ ] Implement edit functionality
 
 See the [open issues](https://github.com/FitzHawke/PEFS/issues) for a full list of proposed features (and known issues).
 

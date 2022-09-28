@@ -7,7 +7,7 @@ function RunItem({ run }) {
   console.log(run);
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card w-96 bg-base-100 shadow-xl btn-active">
       <div className="card-body">
         <div className="card-actions justify-end">
           <button
@@ -30,9 +30,8 @@ function RunItem({ run }) {
             </svg>
           </button>
         </div>
-        <div>Date {new Date(run.createdAt).toLocaleString('en-US')}</div>
-        <h2>Run Started: {run.startTime}</h2>
-        <h2>Run Ended:{run.endTime}</h2>
+        <div>Date: {new Date(run.createdAt).toLocaleString('en-US')}</div>
+        <h2>Run Time: {run.startTime} - {run.endTime}</h2>
         <h2>Run Length (min):{run.runTime}</h2>
         <h2>Run Distance:{run.distance}</h2>
         <h2>Run Pace (Kmh):{run.pace}</h2>
