@@ -46,6 +46,8 @@ function Dashboard() {
         </div>
       </div>
 
+      <div className="divider"></div> 
+
       <section className="">
         {runs.length > 0 ? (
           <div className="flex flex-row flex-wrap gap-2 justify-center">

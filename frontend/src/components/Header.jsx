@@ -8,6 +8,7 @@ function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
+  const active = false;
 
   const onLogout = () => {
     dispatch(logout());
@@ -20,10 +21,17 @@ function Header() {
       <div className="navbar-start">
         <div className="logo">
           <Link to="/" className="btn btn-ghost normal-case text-xl">
-            <h1 className='font-logo text-3xl font-bold'>PEFS</h1>
+            <h1 className="font-logo text-3xl font-bold">PEFS</h1>
           </Link>
         </div>
       </div>
+      {user && active && (
+      <div className="btn-group navbar-center">
+        <button className="btn btn-wide btn-active">Runs</button>
+        <button className="btn btn-wide">Bike Rides</button>
+        <button className="btn btn-wide">Workouts</button>
+      </div>
+      )}
       <div className="navbar-end">
         <ul className="menu menu-horizontal p-0">
           {user ? (

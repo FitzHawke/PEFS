@@ -32,9 +32,9 @@ function RunItem({ run }) {
         </div>
         <div>Date: {new Date(run.createdAt).toLocaleString('en-US')}</div>
         <h2>Run Time: {run.startTime} - {run.endTime}</h2>
-        <h2>Run Length (min):{run.runTime}</h2>
-        <h2>Run Distance:{run.distance}</h2>
-        <h2>Run Pace (Kmh):{run.pace}</h2>
+        <h2>Run Length: {run.runTime} minutes</h2>
+        <h2>Run Distance: {run.distance} km</h2>
+        <h2>Run Pace: {run.pace} km/h</h2>
       </div>
     </div>
   );

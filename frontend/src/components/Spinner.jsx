@@ -3,9 +3,9 @@ import React from 'react';
 function Spinner() {
   return (
     <div class="flex items-center justify-center space-x-2 animate-pulse align-middle h-screen">
-      <div class="w-8 h-8 bg-blue-400 rounded-full"></div>
-      <div class="w-8 h-8 bg-blue-400 rounded-full"></div>
-      <div class="w-8 h-8 bg-blue-400 rounded-full"></div>
+      <div class="w-8 h-8 bg-primary rounded-full"></div>
+      <div class="w-8 h-8 bg-primary rounded-full"></div>
+      <div class="w-8 h-8 bg-primary rounded-full"></div>
     </div>
   );
 }
