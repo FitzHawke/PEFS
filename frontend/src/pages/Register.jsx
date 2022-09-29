@@ -1,18 +1,17 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { FaUser } from 'react-icons/fa';
-import { register, reset } from '../features/auth/authSlice';
-import Spinner from '../components/Spinner';
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { FaUser } from "react-icons/fa";
+import { register, reset } from "../features/auth/authSlice";
+import Spinner from "../components/Spinner";
 
 function Register() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    password2: '',
+    name: "",
+    email: "",
+    password: "",
+    password2: "",
   });
 
   const { name, email, password, password2 } = formData;
@@ -28,12 +27,12 @@ function Register() {
     if (isError) {
       toast.error(message, {
         position: toast.POSITION.TOP_RIGHT,
-        className: 'alert alert-error',
+        className: "alert alert-error",
       });
     }
 
     if (isSuccess || user) {
-      navigate('/');
+      navigate("/");
     }
 
     dispatch(reset());
@@ -50,7 +49,7 @@ function Register() {
     e.preventDefault();
 
     if (password !== password2) {
-      toast.error('Passwords do not match!');
+      toast.error("Passwords do not match!");
     } else {
       const userData = {
         name,
@@ -77,63 +76,61 @@ function Register() {
 
       <section className="flex justify-center">
         <form onSubmit={onSubmit}>
-          <div className="form-control my-2">
-            <label className="label">
-              <span className="label-text">Your Name</span>
-            </label>
-            <input
-              type="text"
-              className="input input-bordered justify-center"
-              id="name"
-              name="name"
-              value={name}
-              placeholder="Enter your name"
-              onChange={onChange}
-            />
-          </div>
-          <div className="form-control my-2">
-            <label className="label">
-              <span className="label-text">Your Email</span>
-            </label>
-            <input
-              type="email"
-              className="input input-bordered justify-center"
-              id="email"
-              name="email"
-              value={email}
-              placeholder="Enter your email"
-              onChange={onChange}
-            />
-          </div>
-          <div className="form-control my-2">
-            <label className="label">
-              <span className="label-text">Password</span>
-            </label>
-            <input
-              type="password"
-              className="input input-bordered justify-center"
-              id="password"
-              name="password"
-              value={password}
-              placeholder="Enter password"
-              onChange={onChange}
-            />
-          </div>
-          <div className="form-control my-2">
-            <label className="label">
-              <span className="label-text">Password</span>
-            </label>
-            <input
-              type="password"
-              className="input input-bordered justify-center"
-              id="password2"
-              name="password2"
-              value={password2}
-              placeholder="Confirm password"
-              onChange={onChange}
-            />
-          </div>
           <div className="form-control">
+            <label className="label flex-col items-start px-0" htmlFor="name">
+              <p className="label-text px-4">Your Name </p>
+              <input
+                type="text"
+                className="input input-bordered justify-center w-full"
+                id="name"
+                name="name"
+                value={name}
+                placeholder="Enter your name"
+                onChange={onChange}
+              />
+            </label>
+            <label className="label flex-col items-start px-0" htmlFor="email">
+              <p className="label-text px-4">Your Email </p>
+              <input
+                type="email"
+                className="input input-bordered justify-center w-full"
+                id="email"
+                name="email"
+                value={email}
+                placeholder="Enter your email"
+                onChange={onChange}
+              />
+            </label>
+            <label
+              className="label flex-col items-start px-0"
+              htmlFor="password"
+            >
+              <p className="label-text px-4">Password </p>
+              <input
+                type="password"
+                className="input input-bordered justify-center w-full"
+                id="password"
+                name="password"
+                value={password}
+                placeholder="Enter password"
+                onChange={onChange}
+              />
+            </label>
+            <label
+              className="label flex-col items-start px-0"
+              htmlFor="password2"
+            >
+              <p className="label-text px-4">Confirm Password </p>
+              <input
+                type="password"
+                className="input input-bordered justify-center w-full"
+                id="password2"
+                name="password2"
+                value={password2}
+                placeholder="Confirm password"
+                onChange={onChange}
+              />
+            </label>
             <button
               type="submit"
               className="btn btn-primary btn-wide mx-auto my-4"

@@ -1,17 +1,15 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { FaSignInAlt } from 'react-icons/fa';
-import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { login, reset } from '../features/auth/authSlice';
-import Spinner from '../components/Spinner';
-import { showModal, resetModal } from '../features/ui/modalSlice';
+import React, { useState, useEffect } from "react";
+import { FaSignInAlt } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { login, reset } from "../features/auth/authSlice";
+import Spinner from "../components/Spinner";
 
 function Login() {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const { email, password } = formData;
@@ -27,12 +25,12 @@ function Login() {
     if (isError) {
       toast.error(message, {
         position: toast.POSITION.TOP_RIGHT,
-        className: 'alert alert-error',
+        className: "alert alert-error",
       });
     }
 
     if (isSuccess || user) {
-      navigate('/');
+      navigate("/");
     }
 
     dispatch(reset());
@@ -70,36 +68,35 @@ function Login() {
       </section>
 
       <section className="flex justify-center">
-        <form className='form-control form-control-lg' onSubmit={onSubmit}>
-          <div className="form-control my-2">
-            <label className="label">
-              <span className="label-text">Your Email</span>
-            </label>
-            <input
-              type="email"
-              className="input input-bordered justify-center"
-              id="email"
-              name="email"
-              value={email}
-              placeholder="Enter your email"
-              onChange={onChange}
-            />
-          </div>
-          <div className="form-control my-2">
-            <label className="label">
-              <span className="label-text">Password</span>
-            </label>
-            <input
-              type="password"
-              className="input input-bordered justify-center"
-              id="password"
-              name="password"
-              value={password}
-              placeholder="Enter password"
-              onChange={onChange}
-            />
-          </div>
+        <form className="form-control form-control-lg" onSubmit={onSubmit}>
           <div className="form-control">
+            <label className="label flex-col items-start px-0" htmlFor="email">
+              <p className="label-text px-4">Your Email </p>
+              <input
+                type="email"
+                className="input input-bordered justify-center w-full"
+                id="email"
+                name="email"
+                value={email}
+                placeholder="Enter your email"
+                onChange={onChange}
+              />
+            </label>
+            <label
+              className="label flex-col items-start px-0"
+              htmlFor="password"
+            >
+              <p className="label-text px-4">Password </p>
+              <input
+                type="password"
+                className="input input-bordered justify-center w-full"
+                id="password"
+                name="password"
+                value={password}
+                placeholder="Enter password"
+                onChange={onChange}
+              />
+            </label>
             <button
               type="submit"
               className="btn btn-primary btn-wide mx-auto my-4"

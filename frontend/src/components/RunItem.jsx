@@ -1,17 +1,18 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { deleteRun } from '../features/runs/runSlice';
+import React from "react";
+import { useDispatch } from "react-redux";
+import { deleteRun } from "../features/runs/runSlice";
 
 function RunItem({ run }) {
   const dispatch = useDispatch();
-  console.log(run);
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl btn-active">
       <div className="card-body">
         <div className="card-actions justify-end">
           <button
+            type="button"
             className="btn btn-square btn-sm"
+            // eslint-disable-next-line no-underscore-dangle
             onClick={() => dispatch(deleteRun(run._id))}
           >
             <svg
@@ -30,8 +31,10 @@ function RunItem({ run }) {
             </svg>
           </button>
         </div>
-        <div>Date: {new Date(run.createdAt).toLocaleString('en-US')}</div>
-        <h2>Run Time: {run.startTime} - {run.endTime}</h2>
+        <div>Date: {new Date(run.createdAt).toLocaleString("en-US")}</div>
+        <h2>
+          Run Time: {run.startTime} - {run.endTime}
+        </h2>
         <h2>Run Length: {run.runTime} minutes</h2>
         <h2>Run Distance: {run.distance} km</h2>
         <h2>Run Pace: {run.pace} km/h</h2>

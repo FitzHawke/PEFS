@@ -1,5 +1,5 @@
-const asyncHandler = require('express-async-handler');
-const Workout = require('../models/workoutModel');
+const asyncHandler = require("express-async-handler");
+const Workout = require("../models/workoutModel");
 
 //  @desc   Get Workouts
 //  @route  GET /api/workouts
@@ -16,7 +16,7 @@ const getWorkouts = asyncHandler(async (req, res) => {
 const setWorkout = asyncHandler(async (req, res) => {
   if (!req.body.text) {
     res.status(400);
-    throw new Error('Please add a text field');
+    throw new Error("Please add a text field");
   }
 
   const workout = await Workout.create({
@@ -35,19 +35,19 @@ const updateWorkout = asyncHandler(async (req, res) => {
 
   if (!workout) {
     res.status(400);
-    throw new Error('workout not found');
+    throw new Error("workout not found");
   }
 
   // Check for user
   if (!req.user) {
     res.status(401);
-    throw new Error('User not found');
+    throw new Error("User not found");
   }
 
   // Make sure the logged in user match the owner
   if (workout.user.toString() !== req.user.id) {
     res.status(401);
-    throw new Error('User not authorized');
+    throw new Error("User not authorized");
   }
 
   const updatedWorkout = await Workout.findByIdAndUpdate(
@@ -69,19 +69,19 @@ const deleteWorkout = asyncHandler(async (req, res) => {
 
   if (!workout) {
     res.status(400);
-    throw new Error('workout not found');
+    throw new Error("workout not found");
   }
 
   // Check for user
   if (!req.user) {
     res.status(401);
-    throw new Error('User not found');
+    throw new Error("User not found");
   }
 
   // Make sure the logged in user match the owner
   if (workout.user.toString() !== req.user.id) {
     res.status(401);
-    throw new Error('User not authorized');
+    throw new Error("User not authorized");
   }
 
   await Workout.remove();
