@@ -1,64 +1,27 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { toast } from "react-toastify";
-import WorkoutForm from "../components/WorkoutForm";
-import Spinner from "../components/Spinner";
-import RunItem from "../components/RunItem";
-import { getRuns, reset } from "../features/runs/runSlice";
+import React from "react";
+import { BrowserRouter as Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Header from "../components/Header";
+import NewWorkout from "./NewWorkout";
+import Footer from "../components/Footer";
+import Modal from "../components/Modal";
 
 function Dashboard() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const { user } = useSelector((state) => state.auth);
-  const { runs, isLoading, isError, message } = useSelector(
-    (state) => state.run
-  );
-
-  useEffect(() => {
-    if (isError) {
-      toast.error(message);
-    }
-    if (!user) {
-      navigate("/login");
-    } else {
-      dispatch(getRuns());
-    }
-
-    return () => dispatch(reset());
-  }, [user, navigate, isError, message, dispatch]);
-
-  if (isLoading) {
-    return <Spinner />;
-  }
-
   return (
     <>
-      <div className="hero h-1/2 bg-base-200 mb-2">
-        <div className="hero-content text-center">
-          <div className="">
-            <h1 className="text-5xl font-bold">Welcome {user && user.name}</h1>
-            <p className="py-6">Workouts Dashboard</p>
-            <WorkoutForm />
-          </div>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <div className="flex-grow container mx-auto">
+          <Routes>
+            <Route path="/newWorkout" element={<NewWorkout />} />
+          </Routes>
         </div>
+        <Footer />
+        <Modal />
       </div>
 
-      <div className="divider" />
-
-      <section className="">
-        {runs.length > 0 ? (
-          <div className="flex flex-row flex-wrap gap-2 justify-center">
-            {runs.map((run) => (
-              // eslint-disable-next-line no-underscore-dangle
-              <RunItem key={run._id} run={run} />
-            ))}
-          </div>
-        ) : (
-          <h3>You have not set any workouts</h3>
-        )}
-      </section>
+      <ToastContainer />
     </>
   );
 }

@@ -30,7 +30,7 @@ function Login() {
     }
 
     if (isSuccess || user) {
-      navigate("/");
+      navigate("/oldDash");
     }
 
     dispatch(reset());
