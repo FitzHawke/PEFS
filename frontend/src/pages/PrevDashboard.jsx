@@ -35,7 +35,7 @@ function PrevDashboard() {
 
   return (
     <>
-      <div className="hero h-1/2 bg-base-200 mb-2">
+      <div className="hero h-1/2 bg-base-200">
         <div className="hero-content text-center">
           <div className="">
             <h1 className="text-5xl font-bold">Welcome {user && user.name}</h1>
@@ -44,10 +44,7 @@ function PrevDashboard() {
           </div>
         </div>
       </div>
-
-      <div className="divider" />
-
-      <section className="">
+      <section className="bg-base-200 p-2">
         {runs.length > 0 ? (
           <div className="flex flex-row flex-wrap gap-2 justify-center">
             {runs.map((run) => (
