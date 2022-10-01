@@ -5,7 +5,9 @@ const Run = require("../models/runModel");
 //  @route  GET /api/runs
 //  @access Private
 const getRuns = asyncHandler(async (req, res) => {
-  const runs = await Run.find({ user: req.user.id });
+  const runs = await Run.find({ user: req.user.id }).sort({
+    createdAt: "desc",
+  });
 
   res.status(200).json(runs);
 });

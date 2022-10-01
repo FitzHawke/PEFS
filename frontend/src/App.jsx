@@ -12,6 +12,7 @@ import Header from "./components/Header";
 import SideBar from "./components/SideBar";
 import Settings from "./pages/Settings";
 import { setChecked } from "./features/ui/sideBarSlice";
+import Overview from "./pages/Overview";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,21 @@ function App() {
               <Route path="/register" element={<Landing register />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/runs" element={<Overview content="runs" />} />
+              <Route path="/rides" element={<Overview content="rides" />} />
+              <Route
+                path="/strength"
+                element={<Overview content="weights" />}
+              />
+              <Route path="/run-dash" element={<Dashboard content="runs" />} />
+              <Route
+                path="/ride-dash"
+                element={<Dashboard content="rides" />}
+              />
+              <Route
+                path="/strength-dash"
+                element={<Dashboard content="weights" />}
+              />
               <Route path="/oldDash" element={<PrevDashboard />} />
             </Routes>
           </div>

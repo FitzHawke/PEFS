@@ -22,18 +22,18 @@ function SideBar() {
   return (
     <div className="drawer-side">
       <div className="drawer-overlay" />
-      <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
-        <li>
-          <NavLink to="/Dashboard">Dashboard</NavLink>
+      <ul className="menu p-4 overflow-y-auto flex-nowrap w-80 bg-base-100 text-base-content">
+        <li className="w-full">
+          <NavLink to="/dashboard">Dashboard</NavLink>
         </li>
         <div className="divider" />
-        <li>
-          <NavLink to="/">Runs Dashboard</NavLink>
+        <li className="w-full">
+          <NavLink to="/run-dash">Runs Dashboard</NavLink>
         </li>
-        <li>
-          <NavLink to="/">Runs Overview</NavLink>
+        <li className="w-full">
+          <NavLink to="/runs">Runs Overview</NavLink>
         </li>
-        <li>
+        <li className="w-full">
           <button
             className="btn-ghost"
             type="button"
@@ -43,13 +43,13 @@ function SideBar() {
           </button>
         </li>
         <div className="divider" />
-        <li>
-          <NavLink to="/">Biking Dashboard</NavLink>
+        <li className="w-full">
+          <NavLink to="/bike-dash">Biking Dashboard</NavLink>
         </li>
-        <li>
-          <NavLink to="/">Biking Overview</NavLink>
+        <li className="w-full">
+          <NavLink to="/bikes">Biking Overview</NavLink>
         </li>
-        <li>
+        <li className="w-full">
           <button
             className="btn-ghost"
             type="button"
@@ -59,13 +59,13 @@ function SideBar() {
           </button>
         </li>
         <div className="divider" />
-        <li>
-          <NavLink to="/">Weightlifting Dashboard</NavLink>
+        <li className="w-full">
+          <NavLink to="/strength">Weightlifting Dashboard</NavLink>
         </li>
-        <li>
-          <NavLink to="/">Weightlifting Overview</NavLink>
+        <li className="w-full">
+          <NavLink to="/strength-dash">Weightlifting Overview</NavLink>
         </li>
-        <li>
+        <li className="w-full">
           <button
             className="btn-ghost"
             type="button"
@@ -75,10 +75,10 @@ function SideBar() {
           </button>
         </li>
         <div className="divider" />
-        <li>
+        <li className="w-full">
           <NavLink to="/settings">Settings</NavLink>
         </li>
-        <li>
+        <li className="w-full">
           <button className="btn-ghost" type="button" onClick={onLogout}>
             Logout
           </button>
