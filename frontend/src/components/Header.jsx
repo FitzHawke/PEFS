@@ -1,8 +1,8 @@
-import React from 'react';
-import { FaSignInAlt, FaSignOutAlt, FaUser } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { logout, reset } from '../features/auth/authSlice';
+import React from "react";
+import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout, reset } from "../features/auth/authSlice";
 
 function Header() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ function Header() {
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -26,17 +26,27 @@ function Header() {
         </div>
       </div>
       {user && active && (
-      <div className="btn-group navbar-center">
-        <button className="btn btn-wide btn-active">Runs</button>
-        <button className="btn btn-wide">Bike Rides</button>
-        <button className="btn btn-wide">Workouts</button>
-      </div>
+        <div className="btn-group navbar-center">
+          <button className="btn btn-wide btn-active" type="button">
+            Runs
+          </button>
+          <button className="btn btn-wide" type="button">
+            Bike Rides
+          </button>
+          <button className="btn btn-wide" type="button">
+            Workouts
+          </button>
+        </div>
       )}
       <div className="navbar-end">
         <ul className="menu menu-horizontal p-0">
           {user ? (
             <li>
-              <button className="btn btn-ghost" onClick={onLogout}>
+              <button
+                className="btn btn-ghost"
+                type="button"
+                onClick={onLogout}
+              >
                 <FaSignOutAlt /> Logout
               </button>
             </li>

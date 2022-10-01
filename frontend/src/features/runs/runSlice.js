@@ -1,20 +1,21 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import runService from './runService';
+/* eslint-disable no-param-reassign */
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import runService from "./runService";
 
 const initialState = {
   runs: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
-  message: '',
+  message: "",
 };
 
 // Register User
 export const createRun = createAsyncThunk(
-  'runs/create',
+  "runs/create",
   async (runData, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token;
+      const { token } = thunkAPI.getState().auth.user;
       return await runService.createRun(runData, token);
     } catch (error) {
       const message =
@@ -26,27 +27,24 @@ export const createRun = createAsyncThunk(
   }
 );
 
-export const getRuns = createAsyncThunk(
-  'runs/getAll',
-  async (_, thunkAPI) => {
-    try {
-      const token = thunkAPI.getState().auth.user.token;
-      return await runService.getRuns(token);
-    } catch (error) {
-      const message =
-        (error.response && error.response.data) ||
-        error.message ||
-        error.toString();
-      return thunkAPI.rejectWithValue(message);
-    }
+export const getRuns = createAsyncThunk("runs/getAll", async (_, thunkAPI) => {
+  try {
+    const { token } = thunkAPI.getState().auth.user;
+    return await runService.getRuns(token);
+  } catch (error) {
+    const message =
+      (error.response && error.response.data) ||
+      error.message ||
+      error.toString();
+    return thunkAPI.rejectWithValue(message);
   }
-);
+});
 
 export const deleteRun = createAsyncThunk(
-  'runs/delete',
+  "runs/delete",
   async (id, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token;
+      const { token } = thunkAPI.getState().auth.user;
       return await runService.deleteRun(id, token);
     } catch (error) {
       const message =
@@ -59,10 +57,10 @@ export const deleteRun = createAsyncThunk(
 );
 
 export const runSlice = createSlice({
-  name: 'run',
+  name: "run",
   initialState,
   reducers: {
-    reset: (state) => (state = initialState),
+    reset: () => initialState,
   },
   extraReducers: (builder) => {
     builder
@@ -98,9 +96,7 @@ export const runSlice = createSlice({
       .addCase(deleteRun.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.runs = state.runs.filter(
-          (run) => run._id !== action.payload.id
-        );
+        state.runs = state.runs.filter((run) => run._id !== action.payload.id);
       })
       .addCase(deleteRun.rejected, (state, action) => {
         state.isLoading = false;

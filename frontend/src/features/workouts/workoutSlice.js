@@ -1,20 +1,21 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import workoutService from './workoutService';
+/* eslint-disable no-param-reassign */
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import workoutService from "./workoutService";
 
 const initialState = {
   workouts: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
-  message: '',
+  message: "",
 };
 
 // Register User
 export const createWorkout = createAsyncThunk(
-  'workouts/create',
+  "workouts/create",
   async (workoutData, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token;
+      const { token } = thunkAPI.getState().auth.user;
       return await workoutService.createWorkout(workoutData, token);
     } catch (error) {
       const message =
@@ -27,10 +28,10 @@ export const createWorkout = createAsyncThunk(
 );
 
 export const getWorkouts = createAsyncThunk(
-  'workouts/getAll',
+  "workouts/getAll",
   async (_, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token;
+      const { token } = thunkAPI.getState().auth.user;
       return await workoutService.getWorkouts(token);
     } catch (error) {
       const message =
@@ -43,10 +44,10 @@ export const getWorkouts = createAsyncThunk(
 );
 
 export const deleteWorkout = createAsyncThunk(
-  'workouts/delete',
+  "workouts/delete",
   async (id, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token;
+      const { token } = thunkAPI.getState().auth.user;
       return await workoutService.deleteWorkout(id, token);
     } catch (error) {
       const message =
@@ -59,10 +60,10 @@ export const deleteWorkout = createAsyncThunk(
 );
 
 export const workoutSlice = createSlice({
-  name: 'workout',
+  name: "workout",
   initialState,
   reducers: {
-    reset: (state) => (state = initialState),
+    reset: () => initialState,
   },
   extraReducers: (builder) => {
     builder

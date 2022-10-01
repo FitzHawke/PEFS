@@ -1,24 +1,23 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import RunningForm from './RunningForm';
-import BikingForm from './BikingForm';
-import WeightsForm from './WeightsForm';
+import React from "react";
+import { useSelector } from "react-redux";
+import RunningForm from "./RunningForm";
+import BikingForm from "./BikingForm";
+import WeightsForm from "./WeightsForm";
 
 function Modal() {
   const { displayModal, modalContent } = useSelector((state) => state.modal);
-  const dispatch = useDispatch();
 
-  let extraClass = '';
+  let extraClass = "";
   let modalType = null;
 
   switch (modalContent) {
-    case 'run':
+    case "run":
       modalType = <RunningForm />;
       break;
-    case 'ride':
+    case "ride":
       modalType = <BikingForm />;
       break;
-    case 'weight':
+    case "weight":
       modalType = <WeightsForm />;
       break;
     default:
@@ -26,17 +25,15 @@ function Modal() {
   }
 
   if (displayModal) {
-    extraClass = 'modal-open';
+    extraClass = "modal-open";
   } else {
-    extraClass = '';
+    extraClass = "";
   }
 
   return (
-    <>
-      <div className={`modal modal-bottom sm:modal-middle ${extraClass}`}>
-        <div className="modal-box">{modalType}</div>
-      </div>
-    </>
+    <div className={`modal modal-bottom sm:modal-middle ${extraClass}`}>
+      <div className="modal-box">{modalType}</div>
+    </div>
   );
 }
 

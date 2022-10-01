@@ -1,12 +1,11 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import WorkoutForm from '../components/WorkoutForm';
-import Spinner from '../components/Spinner';
-import { toast } from 'react-toastify';
-import RunItem from '../components/RunItem';
-import { getRuns, reset } from '../features/runs/runSlice';
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import WorkoutForm from "../components/WorkoutForm";
+import Spinner from "../components/Spinner";
+import RunItem from "../components/RunItem";
+import { getRuns, reset } from "../features/runs/runSlice";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -22,7 +21,7 @@ function Dashboard() {
       toast.error(message);
     }
     if (!user) {
-      navigate('/login');
+      navigate("/login");
     } else {
       dispatch(getRuns());
     }
@@ -46,12 +45,13 @@ function Dashboard() {
         </div>
       </div>
 
-      <div className="divider"></div> 
+      <div className="divider" />
 
       <section className="">
         {runs.length > 0 ? (
           <div className="flex flex-row flex-wrap gap-2 justify-center">
             {runs.map((run) => (
+              // eslint-disable-next-line no-underscore-dangle
               <RunItem key={run._id} run={run} />
             ))}
           </div>

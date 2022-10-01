@@ -1,5 +1,5 @@
-const asyncHandler = require('express-async-handler');
-const Ride = require('../models/rideModel');
+const asyncHandler = require("express-async-handler");
+const Ride = require("../models/rideModel");
 
 //  @desc   Get Rides
 //  @route  GET /api/rides
@@ -16,7 +16,7 @@ const getRides = asyncHandler(async (req, res) => {
 const setRide = asyncHandler(async (req, res) => {
   if (!req.body.text) {
     res.status(400);
-    throw new Error('Please add a text field');
+    throw new Error("Please add a text field");
   }
 
   const ride = await Ride.create({
@@ -35,28 +35,24 @@ const updateRide = asyncHandler(async (req, res) => {
 
   if (!ride) {
     res.status(400);
-    throw new Error('Ride not found');
+    throw new Error("Ride not found");
   }
 
   // Check for user
   if (!req.user) {
     res.status(401);
-    throw new Error('User not found');
+    throw new Error("User not found");
   }
 
   // Make sure the logged in user match the owner
   if (ride.user.toString() !== req.user.id) {
     res.status(401);
-    throw new Error('User not authorized');
+    throw new Error("User not authorized");
   }
 
-  const updatedRide = await Ride.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    {
-      new: true,
-    }
-  );
+  const updatedRide = await Ride.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
 
   res.status(200).json(updatedRide);
 });
@@ -69,19 +65,19 @@ const deleteRide = asyncHandler(async (req, res) => {
 
   if (!ride) {
     res.status(400);
-    throw new Error('ride not found');
+    throw new Error("ride not found");
   }
 
   // Check for user
   if (!req.user) {
     res.status(401);
-    throw new Error('User not found');
+    throw new Error("User not found");
   }
 
   // Make sure the logged in user match the owner
   if (ride.user.toString() !== req.user.id) {
     res.status(401);
-    throw new Error('User not authorized');
+    throw new Error("User not authorized");
   }
 
   await Ride.remove();
