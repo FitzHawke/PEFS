@@ -8,19 +8,31 @@ function TableRow({ index, run }) {
 
   const onClickEdit = () => {
     const editData = {
+      type: "editRun",
       id: run._id,
       startTime: run.startTime,
       endTime: run.endTime,
       distance: run.distance,
       pace: run.pace,
     };
-    dispatch(showModal("editRuns", editData));
+    dispatch(showModal(editData));
   };
+
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+
+  const date = run.date.split("-");
 
   return (
     <tr className="hover">
       <td>{index + 1}</td>
-      <td>{new Date(run.createdAt).toLocaleString("en-US")}</td>
+      <td>
+        {new Date(date[0], date[1], date[2]).toLocaleString("en-US", options)}
+      </td>
       <td>
         {run.startTime} - {run.endTime}
       </td>

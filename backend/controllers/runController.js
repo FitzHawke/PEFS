@@ -6,7 +6,7 @@ const Run = require("../models/runModel");
 //  @access Private
 const getRuns = asyncHandler(async (req, res) => {
   const runs = await Run.find({ user: req.user.id }).sort({
-    createdAt: "desc",
+    date: "desc",
   });
 
   res.status(200).json(runs);
@@ -23,6 +23,7 @@ const setRun = asyncHandler(async (req, res) => {
 
   const run = await Run.create({
     user: req.user.id,
+    date: req.body.date,
     startTime: req.body.timeStart,
     endTime: req.body.timeEnd,
     runTime: req.body.runTime,

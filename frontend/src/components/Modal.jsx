@@ -12,16 +12,16 @@ function Modal() {
 
   switch (modalContent.type) {
     case "run":
-      modalType = <RunningForm />;
+      modalType = <RunningForm content={modalContent} />;
       break;
     case "editRun":
-      modalType = <RunningForm />;
+      modalType = <RunningForm content={modalContent} />;
       break;
     case "ride":
       modalType = <BikingForm />;
       break;
     case "editRide":
-      modalType = <RunningForm />;
+      modalType = <BikingForm />;
       break;
     case "lift":
       modalType = <LiftsForm />;
