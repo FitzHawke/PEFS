@@ -5,10 +5,12 @@ import { showModal } from "../features/ui/modalSlice";
 
 function TableRow({ index, run }) {
   const dispatch = useDispatch();
+  console.log(index);
 
   const onClickEdit = () => {
     const editData = {
       type: "editRun",
+      date: run.date,
       id: run._id,
       startTime: run.startTime,
       endTime: run.endTime,
@@ -43,7 +45,6 @@ function TableRow({ index, run }) {
         <button
           type="button"
           className="btn btn-square btn-ghost"
-          // eslint-disable-next-line no-underscore-dangle
           onClick={onClickEdit}
         >
           <svg

@@ -30,6 +30,7 @@ function RunningForm({ content }) {
   } else if (content.type === "editRun" && formData.timeStart === "") {
     setFormData((prevState) => ({
       ...prevState,
+      date: content.date,
       distance: content.distance,
       timeStart: content.startTime,
       timeEnd: content.endTime,
@@ -41,7 +42,7 @@ function RunningForm({ content }) {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (!distance || !timeStart || !timeEnd) {
+    if (!date || !distance || !timeStart || !timeEnd) {
       toast.error("Please fill out all available fields", {
         position: toast.POSITION.TOP_RIGHT,
         className: "alert alert-error",
@@ -61,6 +62,7 @@ function RunningForm({ content }) {
 
       if (content.type === "editRun") {
         runData.id = content.id;
+        console.log(runData);
         dispatch(editRun(runData));
       } else {
         dispatch(createRun(runData));
@@ -81,7 +83,7 @@ function RunningForm({ content }) {
       <form className="form-control form-control-lg" onSubmit={onSubmit}>
         <div className="form-control my-2">
           <label className="label flex-col items-start px-0" htmlFor="distance">
-            <p className="label-text px-4">Distance of your run</p>
+            <p className="label-text px-4">Date of your run</p>
             <input
               type="date"
               className="input input-bordered justify-center w-full"

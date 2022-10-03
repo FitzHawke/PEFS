@@ -57,10 +57,22 @@ const updateRun = asyncHandler(async (req, res) => {
     throw new Error("User not authorized");
   }
 
-  const updatedRun = await Run.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
+  const updatedRun = await Run.findByIdAndUpdate(
+    req.params.id,
+    {
+      date: req.body.date,
+      startTime: req.body.timeStart,
+      endTime: req.body.timeEnd,
+      runTime: req.body.runTime,
+      distance: req.body.distance,
+      pace: req.body.pace,
+    },
+    {
+      new: true,
+    }
+  );
 
+  console.log(updatedRun);
   res.status(200).json(updatedRun);
 });
 
