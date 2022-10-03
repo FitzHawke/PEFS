@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   displayModal: false,
-  modalContent: "",
+  modalContent: {},
 };
 
 export const modalSlice = createSlice({
@@ -12,7 +12,7 @@ export const modalSlice = createSlice({
   reducers: {
     resetModal: (state) => {
       state.displayModal = false;
-      state.modalContent = "";
+      state.modalContent = {};
     },
     showModal: (state, action) => {
       state.displayModal = true;

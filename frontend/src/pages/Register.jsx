@@ -133,7 +133,7 @@ function Register() {
             </label>
             <button
               type="submit"
-              className="btn btn-primary btn-wide mx-auto my-4"
+              className="btn btn-accent btn-wide mx-auto my-4"
             >
               Signup
             </button>

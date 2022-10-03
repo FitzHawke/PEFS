@@ -10,7 +10,7 @@ function BikingForm() {
       <h1 className="text-center">Feature not implemented yet 😞</h1>
       <button
         type="button"
-        className="btn btn-primary btn-wide mx-auto my-4"
+        className="btn btn-accent btn-wide mx-auto my-4"
         onClick={() => dispatch(resetModal())}
       >
         Close

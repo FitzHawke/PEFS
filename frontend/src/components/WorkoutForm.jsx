@@ -9,24 +9,24 @@ function WorkoutForm() {
     <section className="flex flex-row flex-wrap justify-center gap-2">
       <button
         type="button"
-        className="btn btn-primary btn-wide"
-        onClick={() => dispatch(showModal("run"))}
+        className="btn btn-accent btn-wide"
+        onClick={() => dispatch(showModal({ type: "run" }))}
       >
         Add New Run
       </button>
       <button
         type="button"
-        className="btn btn-primary btn-wide tooltip"
+        className="btn btn-accent btn-wide tooltip"
         data-tip="Coming Soon!"
-        onClick={() => dispatch(showModal("ride"))}
+        onClick={() => dispatch(showModal({ type: "ride" }))}
       >
         Add New Bike Ride
       </button>
       <button
         type="button"
-        className="btn btn-primary btn-wide tooltip"
+        className="btn btn-accent btn-wide tooltip"
         data-tip="Coming Soon!"
-        onClick={() => dispatch(showModal("weight"))}
+        onClick={() => dispatch(showModal({ type: "lift" }))}
       >
         Add New Weightlifting Session
       </button>

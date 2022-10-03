@@ -44,18 +44,15 @@ function App() {
               <Route path="/settings" element={<Settings />} />
               <Route path="/runs" element={<Overview content="runs" />} />
               <Route path="/rides" element={<Overview content="rides" />} />
-              <Route
-                path="/strength"
-                element={<Overview content="weights" />}
-              />
+              <Route path="/lifting" element={<Overview content="lifts" />} />
               <Route path="/run-dash" element={<Dashboard content="runs" />} />
               <Route
                 path="/ride-dash"
                 element={<Dashboard content="rides" />}
               />
               <Route
-                path="/strength-dash"
-                element={<Dashboard content="weights" />}
+                path="/lift-dash"
+                element={<Dashboard content="lifts" />}
               />
               <Route path="/oldDash" element={<PrevDashboard />} />
             </Routes>

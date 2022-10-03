@@ -24,52 +24,101 @@ function SideBar() {
       <div className="drawer-overlay" />
       <ul className="menu p-4 overflow-y-auto flex-nowrap w-80 bg-base-100 text-base-content">
         <li className="w-full">
-          <NavLink to="/dashboard">Dashboard</NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "bg-accent" : "active:bg-accent-focus"
+            }
+            to="/dashboard"
+          >
+            Dashboard
+          </NavLink>
         </li>
         <div className="divider" />
         <li className="w-full">
-          <NavLink to="/run-dash">Runs Dashboard</NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "bg-accent" : "active:bg-accent-focus"
+            }
+            to="/run-dash"
+          >
+            Runs Dashboard
+          </NavLink>
         </li>
         <li className="w-full">
-          <NavLink to="/runs">Runs Overview</NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "bg-accent" : "active:bg-accent-focus"
+            }
+            to="/runs"
+          >
+            Runs Overview
+          </NavLink>
         </li>
         <li className="w-full">
           <button
             className="btn-ghost"
             type="button"
-            onClick={() => dispatch(showModal("run"))}
+            onClick={() => dispatch(showModal({ type: "run" }))}
           >
             Add New Run
           </button>
         </li>
         <div className="divider" />
         <li className="w-full">
-          <NavLink to="/bike-dash">Biking Dashboard</NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "bg-accent" : "active:bg-accent-focus"
+            }
+            to="/ride-dash"
+          >
+            Biking Dashboard
+          </NavLink>
         </li>
         <li className="w-full">
-          <NavLink to="/bikes">Biking Overview</NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "bg-accent" : "active:bg-accent-focus"
+            }
+            to="/rides"
+          >
+            Biking Overview
+          </NavLink>
         </li>
         <li className="w-full">
           <button
             className="btn-ghost"
             type="button"
-            onClick={() => dispatch(showModal("ride"))}
+            onClick={() => dispatch(showModal({ type: "ride" }))}
           >
             Add New Bike Ride
           </button>
         </li>
         <div className="divider" />
         <li className="w-full">
-          <NavLink to="/strength">Weightlifting Dashboard</NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "bg-accent" : "active:bg-accent-focus"
+            }
+            to="/lift-dash"
+          >
+            Weightlifting Dashboard
+          </NavLink>
         </li>
         <li className="w-full">
-          <NavLink to="/strength-dash">Weightlifting Overview</NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "bg-accent" : "active:bg-accent-focus"
+            }
+            to="/lifting"
+          >
+            Weightlifting Overview
+          </NavLink>
         </li>
         <li className="w-full">
           <button
             className="btn-ghost"
             type="button"
-            onClick={() => dispatch(showModal("weight"))}
+            onClick={() => dispatch(showModal({ type: "lift" }))}
           >
             Add New Weights Session
           </button>
