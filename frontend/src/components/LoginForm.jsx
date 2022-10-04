@@ -29,7 +29,7 @@ function Login() {
     }
 
     if (isSuccess || user) {
-      navigate("/oldDash");
+      navigate("/dashboard");
     }
 
     dispatch(reset());

@@ -7,7 +7,6 @@ import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
 import Footer from "./components/Footer";
 import Modal from "./components/Modal";
-import PrevDashboard from "./pages/PrevDashboard";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
 import Settings from "./pages/Settings";
@@ -54,7 +53,6 @@ function App() {
                 path="/lift-dash"
                 element={<Dashboard content="lifts" />}
               />
-              <Route path="/oldDash" element={<PrevDashboard />} />
             </Routes>
           </div>
           <SideBar />

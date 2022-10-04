@@ -4,7 +4,7 @@ import RegisterForm from "../components/RegisterForm";
 
 function EntryPage({ register }) {
   return (
-    <div className="hero flex-grow max-h-screen bg-base-200">
+    <div className="hero flex-grow h-full bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
         <div className="text-center lg:text-left">
           <h1 className="sm:text-[12rem] text-8xl font-bold font-logo">PEFS</h1>

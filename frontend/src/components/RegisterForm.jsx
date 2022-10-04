@@ -31,7 +31,7 @@ function Register() {
     }
 
     if (isSuccess || user) {
-      navigate("/oldDash");
+      navigate("/dashboard");
     }
 
     dispatch(reset());
@@ -68,7 +68,7 @@ function Register() {
     <section className="flex justify-center">
       <p>
         {" "}
-        Already have an account? <Link to="/login">Register Here!</Link>
+        Already have an account? <Link to="/login">Sign In Here!</Link>
       </p>
       <form onSubmit={onSubmit}>
         <div className="form-control">
