@@ -18,9 +18,6 @@ function Overview({ content }) {
     case "ride":
       tableType = <RideTable />;
       break;
-    // case "lift":
-    //   tableType = <LiftTable />;
-    //   break;
     default:
       tableType = null;
   }

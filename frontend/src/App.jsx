@@ -42,11 +42,9 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/runs" element={<Overview content="run" />} />
-              <Route path="/rides" element={<Overview content="ride" />} />
-              <Route path="/lifting" element={<Overview content="lift" />} />
               <Route path="/run-dash" element={<Dashboard content="run" />} />
+              <Route path="/rides" element={<Overview content="ride" />} />
               <Route path="/ride-dash" element={<Dashboard content="ride" />} />
-              <Route path="/lift-dash" element={<Dashboard content="lift" />} />
             </Routes>
           </div>
           <SideBar />

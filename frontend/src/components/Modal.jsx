@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import RunForm from "./RunForm";
 import RideForm from "./RideForm";
-import LiftForm from "./LiftForm";
 
 function Modal() {
   const { displayModal, modalContent } = useSelector((state) => state.modal);
@@ -22,12 +21,6 @@ function Modal() {
       break;
     case "editRide":
       modalType = <RideForm content={modalContent} />;
-      break;
-    case "lift":
-      modalType = <LiftForm />;
-      break;
-    case "editlift":
-      modalType = <LiftForm />;
       break;
     default:
       modalType = null;

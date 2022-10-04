@@ -111,40 +111,6 @@ function SideBar() {
                 ? "!bg-accent !text-accent-content"
                 : "active:bg-accent-focus"
             }
-            to="/lift-dash"
-          >
-            Weightlifting Dashboard
-          </NavLink>
-        </li>
-        <li className="w-full">
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "!bg-accent !text-accent-content"
-                : "active:bg-accent-focus"
-            }
-            to="/lifting"
-          >
-            Weightlifting Overview
-          </NavLink>
-        </li>
-        <li className="w-full">
-          <button
-            className="btn-ghost"
-            type="button"
-            onClick={() => dispatch(showModal({ type: "lift" }))}
-          >
-            Add New Weights Session
-          </button>
-        </li>
-        <div className="divider" />
-        <li className="w-full">
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "!bg-accent !text-accent-content"
-                : "active:bg-accent-focus"
-            }
             to="/settings"
           >
             Settings
