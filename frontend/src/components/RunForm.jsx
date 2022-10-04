@@ -1,24 +1,48 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { createRun } from "../features/runs/runSlice";
+import { createRun, editRun } from "../features/runs/runSlice";
 import { resetModal } from "../features/ui/modalSlice";
 import timeDifference from "../modules/timeDifference";
+import getNow from "../modules/getNow";
 
-function RunningForm() {
+function RunningForm({ content }) {
   const [formData, setFormData] = useState({
+    date: "",
     distance: 0,
-    timeStart: 0,
-    timeEnd: 0,
+    timeStart: "",
+    timeEnd: "",
   });
 
   const dispatch = useDispatch();
-  const { distance, timeStart, timeEnd } = formData;
+
+  if (content.type === "run" && formData.timeStart === "") {
+    const currentTime = getNow.currTime();
+    const offSetTime = getNow.offSet();
+    const currentDate = getNow.currDate();
+
+    setFormData((prevState) => ({
+      ...prevState,
+      date: currentDate,
+      timeStart: offSetTime,
+      timeEnd: currentTime,
+    }));
+  } else if (content.type === "editRun" && formData.timeStart === "") {
+    setFormData((prevState) => ({
+      ...prevState,
+      date: content.date,
+      distance: content.distance,
+      timeStart: content.startTime,
+      timeEnd: content.endTime,
+    }));
+  }
+
+  const { date, distance, timeStart, timeEnd } = formData;
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (!distance || !timeStart || !timeEnd) {
+    if (!date || !distance || !timeStart || !timeEnd) {
       toast.error("Please fill out all available fields", {
         position: toast.POSITION.TOP_RIGHT,
         className: "alert alert-error",
@@ -28,6 +52,7 @@ function RunningForm() {
       const pace = +(distance / (runTime / 60)).toFixed(2);
 
       const runData = {
+        date,
         distance: +distance,
         timeStart,
         timeEnd,
@@ -35,7 +60,12 @@ function RunningForm() {
         pace,
       };
 
-      dispatch(createRun(runData));
+      if (content.type === "editRun") {
+        runData.id = content.id;
+        dispatch(editRun(runData));
+      } else {
+        dispatch(createRun(runData));
+      }
       dispatch(resetModal());
     }
   };
@@ -51,6 +81,18 @@ function RunningForm() {
     <section className="flex justify-center flex-col">
       <form className="form-control form-control-lg" onSubmit={onSubmit}>
         <div className="form-control my-2">
+          <label className="label flex-col items-start px-0" htmlFor="distance">
+            <p className="label-text px-4">Date of your run</p>
+            <input
+              type="date"
+              className="input input-bordered justify-center w-full"
+              id="date"
+              name="date"
+              value={date}
+              placeholder="Enter the date you ran"
+              onChange={onChange}
+            />
+          </label>
           <label className="label flex-col items-start px-0" htmlFor="distance">
             <p className="label-text px-4">Distance of your run</p>
             <input
@@ -92,7 +134,7 @@ function RunningForm() {
           </label>
           <button
             type="submit"
-            className="btn btn-primary btn-wide mx-auto my-4"
+            className="btn btn-accent btn-wide mx-auto my-4"
           >
             Submit
           </button>

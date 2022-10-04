@@ -1,23 +1,22 @@
-/* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   displayModal: false,
-  modalContent: "",
+  modalContent: {},
 };
 
 export const modalSlice = createSlice({
   name: "modal",
   initialState,
   reducers: {
-    resetModal: (state) => {
-      state.displayModal = false;
-      state.modalContent = "";
-    },
-    showModal: (state, action) => {
-      state.displayModal = true;
-      state.modalContent = action.payload;
-    },
+    resetModal: () => ({
+      displayModal: false,
+      modalContent: {},
+    }),
+    showModal: (_, action) => ({
+      displayModal: true,
+      modalContent: action.payload,
+    }),
   },
 });
 

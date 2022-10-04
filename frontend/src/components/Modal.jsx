@@ -1,8 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import RunningForm from "./RunningForm";
-import BikingForm from "./BikingForm";
-import WeightsForm from "./WeightsForm";
+import RunForm from "./RunForm";
+import RideForm from "./RideForm";
 
 function Modal() {
   const { displayModal, modalContent } = useSelector((state) => state.modal);
@@ -10,15 +9,18 @@ function Modal() {
   let extraClass = "";
   let modalType = null;
 
-  switch (modalContent) {
+  switch (modalContent.type) {
     case "run":
-      modalType = <RunningForm />;
+      modalType = <RunForm content={modalContent} />;
+      break;
+    case "editRun":
+      modalType = <RunForm content={modalContent} />;
       break;
     case "ride":
-      modalType = <BikingForm />;
+      modalType = <RideForm content={modalContent} />;
       break;
-    case "weight":
-      modalType = <WeightsForm />;
+    case "editRide":
+      modalType = <RideForm content={modalContent} />;
       break;
     default:
       modalType = null;

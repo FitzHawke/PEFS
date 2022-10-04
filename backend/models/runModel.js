@@ -7,13 +7,17 @@ const runSchema = mongoose.Schema(
       required: true,
       ref: "User",
     },
+    date: {
+      type: String,
+      required: [true, "Please add a date value"],
+    },
     startTime: {
       type: String,
-      required: [true, "Please add a text value"],
+      required: [true, "Please add a start time value"],
     },
     endTime: {
       type: String,
-      required: [true, "Please add a text value"],
+      required: [true, "Please add a end time value"],
     },
     runTime: {
       type: Number,

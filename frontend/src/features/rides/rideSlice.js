@@ -1,21 +1,21 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import runService from "./runService";
+import rideService from "./rideService";
 
 const initialState = {
-  runs: [],
+  rides: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: "",
 };
 
-// Create Run
-export const createRun = createAsyncThunk(
-  "runs/create",
-  async (runData, thunkAPI) => {
+// Create Ride
+export const createRide = createAsyncThunk(
+  "rides/create",
+  async (rideData, thunkAPI) => {
     try {
       const { token } = thunkAPI.getState().auth.user;
-      return await runService.createRun(runData, token);
+      return await rideService.createRide(rideData, token);
     } catch (error) {
       const message =
         (error.response && error.response.data) ||
@@ -26,25 +26,12 @@ export const createRun = createAsyncThunk(
   }
 );
 
-export const getRuns = createAsyncThunk("runs/getAll", async (_, thunkAPI) => {
-  try {
-    const { token } = thunkAPI.getState().auth.user;
-    return await runService.getRuns(token);
-  } catch (error) {
-    const message =
-      (error.response && error.response.data) ||
-      error.message ||
-      error.toString();
-    return thunkAPI.rejectWithValue(message);
-  }
-});
-
-export const editRun = createAsyncThunk(
-  "runs/edit",
-  async (runData, thunkAPI) => {
+export const getRides = createAsyncThunk(
+  "rides/getAll",
+  async (_, thunkAPI) => {
     try {
       const { token } = thunkAPI.getState().auth.user;
-      return await runService.editRun(runData.id, runData, token);
+      return await rideService.getRides(token);
     } catch (error) {
       const message =
         (error.response && error.response.data) ||
@@ -55,12 +42,28 @@ export const editRun = createAsyncThunk(
   }
 );
 
-export const deleteRun = createAsyncThunk(
-  "runs/delete",
+export const editRide = createAsyncThunk(
+  "rides/edit",
+  async (rideData, thunkAPI) => {
+    try {
+      const { token } = thunkAPI.getState().auth.user;
+      return await rideService.editRide(rideData.id, rideData, token);
+    } catch (error) {
+      const message =
+        (error.response && error.response.data) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+export const deleteRide = createAsyncThunk(
+  "rides/delete",
   async (id, thunkAPI) => {
     try {
       const { token } = thunkAPI.getState().auth.user;
-      return await runService.deleteRun(id, token);
+      return await rideService.deleteRide(id, token);
     } catch (error) {
       const message =
         (error.response && error.response.data) ||
@@ -71,75 +74,75 @@ export const deleteRun = createAsyncThunk(
   }
 );
 
-export const runSlice = createSlice({
-  name: "runs",
+export const rideSlice = createSlice({
+  name: "rides",
   initialState,
   reducers: {
     reset: () => initialState,
   },
   extraReducers: (builder) => {
     builder
-      .addCase(createRun.pending, (state) => ({
+      .addCase(createRide.pending, (state) => ({
         ...state,
         isLoading: true,
       }))
-      .addCase(createRun.fulfilled, (state, action) => ({
+      .addCase(createRide.fulfilled, (state, action) => ({
         ...state,
         isLoading: false,
         isSuccess: true,
-        runs: [action.payload, ...state.runs],
+        rides: [action.payload, ...state.rides],
       }))
-      .addCase(createRun.rejected, (state, action) => ({
+      .addCase(createRide.rejected, (state, action) => ({
         ...state,
         isLoading: false,
         isError: true,
         message: action.payload,
       }))
-      .addCase(getRuns.pending, (state) => ({
+      .addCase(getRides.pending, (state) => ({
         ...state,
         isLoading: true,
       }))
-      .addCase(getRuns.fulfilled, (state, action) => ({
+      .addCase(getRides.fulfilled, (state, action) => ({
         ...state,
         isLoading: false,
         isSuccess: true,
-        runs: action.payload,
+        rides: action.payload,
       }))
-      .addCase(getRuns.rejected, (state, action) => ({
+      .addCase(getRides.rejected, (state, action) => ({
         ...state,
         isLoading: false,
         isError: true,
         message: action.payload,
       }))
-      .addCase(editRun.pending, (state) => ({
+      .addCase(editRide.pending, (state) => ({
         ...state,
         isLoading: true,
       }))
-      .addCase(editRun.fulfilled, (state, action) => ({
+      .addCase(editRide.fulfilled, (state, action) => ({
         ...state,
         isLoading: false,
         isSuccess: true,
-        runs: state.runs.map((run) =>
-          run._id === action.payload._id ? action.payload : run
+        rides: state.rides.map((ride) =>
+          ride._id === action.payload._id ? action.payload : ride
         ),
       }))
-      .addCase(editRun.rejected, (state, action) => ({
+      .addCase(editRide.rejected, (state, action) => ({
         ...state,
         isLoading: false,
         isError: true,
         message: action.payload,
       }))
-      .addCase(deleteRun.pending, (state) => ({
+      .addCase(deleteRide.pending, (state) => ({
         ...state,
         isLoading: true,
       }))
-      .addCase(deleteRun.fulfilled, (state, action) => ({
+      .addCase(deleteRide.fulfilled, (state, action) => ({
         ...state,
         isLoading: false,
         isSuccess: true,
-        runs: state.runs.filter((run) => run._id !== action.payload.id),
+        rides: state.rides.filter((ride) => ride._id !== action.payload.id),
       }))
-      .addCase(deleteRun.rejected, (state, action) => ({
+      .addCase(deleteRide.rejected, (state, action) => ({
         ...state,
         isLoading: false,
         isError: true,
@@ -148,5 +151,5 @@ export const runSlice = createSlice({
   },
 });
 
-export const { reset } = runSlice.actions;
-export default runSlice.reducer;
+export const { reset } = rideSlice.actions;
+export default rideSlice.reducer;
