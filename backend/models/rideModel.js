@@ -7,16 +7,29 @@ const rideSchema = mongoose.Schema(
       required: true,
       ref: "User",
     },
-    time: {
+    date: {
       type: String,
-      required: [true, "Please add a text value"],
+      required: [true, "Please add a date value"],
+    },
+    startTime: {
+      type: String,
+      required: [true, "Please add a start time value"],
+    },
+    endTime: {
+      type: String,
+      required: [true, "Please add a end time value"],
+    },
+    rideTime: {
+      type: Number,
+      required: [true, "Please add a number value"],
     },
     distance: {
       type: Number,
-      required: [true, "Please add a numerical value"],
+      required: [true, "Please add a number value"],
     },
     pace: {
-      type: String,
+      type: Number,
+      required: [true, "Please add a number value"],
     },
   },
   {

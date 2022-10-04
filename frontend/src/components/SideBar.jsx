@@ -26,7 +26,9 @@ function SideBar() {
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "!btn-accent" : "active:btn-accent-focus"
+              isActive
+                ? "!bg-accent !text-accent-content"
+                : "active:bg-accent-focus"
             }
             to="/dashboard"
           >
@@ -37,7 +39,9 @@ function SideBar() {
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "!btn-accent" : "active:btn-accent-focus"
+              isActive
+                ? "!bg-accent !text-accent-content"
+                : "active:bg-accent-focus"
             }
             to="/run-dash"
           >
@@ -47,7 +51,9 @@ function SideBar() {
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "!btn-accent" : "active:btn-accent-focus"
+              isActive
+                ? "!bg-accent !text-accent-content"
+                : "active:bg-accent-focus"
             }
             to="/runs"
           >
@@ -67,7 +73,9 @@ function SideBar() {
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "!btn-accent" : "active:btn-accent-focus"
+              isActive
+                ? "!bg-accent !text-accent-content"
+                : "active:bg-accent-focus"
             }
             to="/ride-dash"
           >
@@ -77,7 +85,9 @@ function SideBar() {
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "!btn-accent" : "active:btn-accent-focus"
+              isActive
+                ? "!bg-accent !text-accent-content"
+                : "active:bg-accent-focus"
             }
             to="/rides"
           >
@@ -97,7 +107,9 @@ function SideBar() {
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "!btn-accent" : "active:btn-accent-focus"
+              isActive
+                ? "!bg-accent !text-accent-content"
+                : "active:bg-accent-focus"
             }
             to="/lift-dash"
           >
@@ -107,7 +119,9 @@ function SideBar() {
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "!btn-accent" : "active:btn-accent-focus"
+              isActive
+                ? "!bg-accent !text-accent-content"
+                : "active:bg-accent-focus"
             }
             to="/lifting"
           >
@@ -125,7 +139,16 @@ function SideBar() {
         </li>
         <div className="divider" />
         <li className="w-full">
-          <NavLink to="/settings">Settings</NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "!bg-accent !text-accent-content"
+                : "active:bg-accent-focus"
+            }
+            to="/settings"
+          >
+            Settings
+          </NavLink>
         </li>
         <li className="w-full">
           <button className="btn-ghost" type="button" onClick={onLogout}>

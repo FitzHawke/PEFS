@@ -29,7 +29,7 @@ function Header() {
             to="/"
             className="btn btn-ghost hidden lg:block normal-case text-xl"
           >
-            <h1 className="font-logo text-3xl font-bold">PEFS</h1>
+            <h1 className="font-logo text-3xl font-bold align-bottom">PEFS</h1>
           </Link>
         </div>
         <button

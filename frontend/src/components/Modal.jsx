@@ -18,10 +18,10 @@ function Modal() {
       modalType = <RunForm content={modalContent} />;
       break;
     case "ride":
-      modalType = <RideForm />;
+      modalType = <RideForm content={modalContent} />;
       break;
     case "editRide":
-      modalType = <RideForm />;
+      modalType = <RideForm content={modalContent} />;
       break;
     case "lift":
       modalType = <LiftForm />;

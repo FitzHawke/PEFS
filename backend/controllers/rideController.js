@@ -5,7 +5,9 @@ const Ride = require("../models/rideModel");
 //  @route  GET /api/rides
 //  @access Private
 const getRides = asyncHandler(async (req, res) => {
-  const rides = await Ride.find({ user: req.user.id });
+  const rides = await Ride.find({ user: req.user.id }).sort({
+    date: "desc",
+  });
 
   res.status(200).json(rides);
 });
@@ -14,14 +16,19 @@ const getRides = asyncHandler(async (req, res) => {
 //  @route  POST /api/rides
 //  @access Private
 const setRide = asyncHandler(async (req, res) => {
-  if (!req.body.text) {
+  if (!req.body.distance) {
     res.status(400);
-    throw new Error("Please add a text field");
+    throw new Error("Please add a distance field");
   }
 
   const ride = await Ride.create({
-    text: req.body.text,
     user: req.user.id,
+    date: req.body.date,
+    startTime: req.body.timeStart,
+    endTime: req.body.timeEnd,
+    rideTime: req.body.rideTime,
+    distance: req.body.distance,
+    pace: req.body.pace,
   });
 
   res.status(200).json(ride);
@@ -35,7 +42,7 @@ const updateRide = asyncHandler(async (req, res) => {
 
   if (!ride) {
     res.status(400);
-    throw new Error("Ride not found");
+    throw new Error("ride not found");
   }
 
   // Check for user
@@ -50,10 +57,22 @@ const updateRide = asyncHandler(async (req, res) => {
     throw new Error("User not authorized");
   }
 
-  const updatedRide = await Ride.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
+  const updatedRide = await Ride.findByIdAndUpdate(
+    req.params.id,
+    {
+      date: req.body.date,
+      startTime: req.body.timeStart,
+      endTime: req.body.timeEnd,
+      rideTime: req.body.rideTime,
+      distance: req.body.distance,
+      pace: req.body.pace,
+    },
+    {
+      new: true,
+    }
+  );
 
+  console.log(updatedRide);
   res.status(200).json(updatedRide);
 });
 
@@ -80,7 +99,7 @@ const deleteRide = asyncHandler(async (req, res) => {
     throw new Error("User not authorized");
   }
 
-  await Ride.remove();
+  await Ride.deleteOne(ride);
 
   res.status(200).json({ id: req.params.id });
 });

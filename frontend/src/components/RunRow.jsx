@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { deleteRun } from "../features/runs/runSlice";
 import { showModal } from "../features/ui/modalSlice";
 
-function TableRow({ index, run }) {
+function RunRow({ index, run }) {
   const dispatch = useDispatch();
 
   const onClickEdit = () => {
@@ -78,4 +78,4 @@ function TableRow({ index, run }) {
   );
 }
 
-export default TableRow;
+export default RunRow;
