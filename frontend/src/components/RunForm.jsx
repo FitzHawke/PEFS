@@ -62,7 +62,6 @@ function RunningForm({ content }) {
 
       if (content.type === "editRun") {
         runData.id = content.id;
-        console.log(runData);
         dispatch(editRun(runData));
       } else {
         dispatch(createRun(runData));

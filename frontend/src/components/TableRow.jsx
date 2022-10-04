@@ -5,7 +5,6 @@ import { showModal } from "../features/ui/modalSlice";
 
 function TableRow({ index, run }) {
   const dispatch = useDispatch();
-  console.log(index);
 
   const onClickEdit = () => {
     const editData = {
@@ -33,7 +32,10 @@ function TableRow({ index, run }) {
     <tr className="hover">
       <td>{index + 1}</td>
       <td>
-        {new Date(date[0], date[1], date[2]).toLocaleString("en-US", options)}
+        {new Date(date[0], date[1] - 1, date[2]).toLocaleString(
+          "en-US",
+          options
+        )}
       </td>
       <td>
         {run.startTime} - {run.endTime}

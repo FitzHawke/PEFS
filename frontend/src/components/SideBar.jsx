@@ -26,7 +26,7 @@ function SideBar() {
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "bg-accent" : "active:bg-accent-focus"
+              isActive ? "!btn-accent" : "active:btn-accent-focus"
             }
             to="/dashboard"
           >
@@ -37,7 +37,7 @@ function SideBar() {
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "bg-accent" : "active:bg-accent-focus"
+              isActive ? "!btn-accent" : "active:btn-accent-focus"
             }
             to="/run-dash"
           >
@@ -47,7 +47,7 @@ function SideBar() {
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "bg-accent" : "active:bg-accent-focus"
+              isActive ? "!btn-accent" : "active:btn-accent-focus"
             }
             to="/runs"
           >
@@ -67,7 +67,7 @@ function SideBar() {
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "bg-accent" : "active:bg-accent-focus"
+              isActive ? "!btn-accent" : "active:btn-accent-focus"
             }
             to="/ride-dash"
           >
@@ -77,7 +77,7 @@ function SideBar() {
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "bg-accent" : "active:bg-accent-focus"
+              isActive ? "!btn-accent" : "active:btn-accent-focus"
             }
             to="/rides"
           >
@@ -97,7 +97,7 @@ function SideBar() {
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "bg-accent" : "active:bg-accent-focus"
+              isActive ? "!btn-accent" : "active:btn-accent-focus"
             }
             to="/lift-dash"
           >
@@ -107,7 +107,7 @@ function SideBar() {
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "bg-accent" : "active:bg-accent-focus"
+              isActive ? "!btn-accent" : "active:btn-accent-focus"
             }
             to="/lifting"
           >

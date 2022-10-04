@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { resetModal } from "../features/ui/modalSlice";
 
-function LiftsForm() {
+function LiftForm() {
   const dispatch = useDispatch();
 
   return (
@@ -19,4 +19,4 @@ function LiftsForm() {
   );
 }
 
-export default LiftsForm;
+export default LiftForm;

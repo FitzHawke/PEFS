@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { resetModal } from "../features/ui/modalSlice";
 
-function BikingForm() {
+function RideForm() {
   const dispatch = useDispatch();
 
   return (
@@ -19,4 +19,4 @@ function BikingForm() {
   );
 }
 
-export default BikingForm;
+export default RideForm;
