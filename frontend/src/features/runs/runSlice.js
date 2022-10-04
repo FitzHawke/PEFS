@@ -10,7 +10,7 @@ const initialState = {
   message: "",
 };
 
-// Register User
+// Create Run
 export const createRun = createAsyncThunk(
   "runs/create",
   async (runData, thunkAPI) => {
@@ -40,6 +40,22 @@ export const getRuns = createAsyncThunk("runs/getAll", async (_, thunkAPI) => {
   }
 });
 
+export const editRun = createAsyncThunk(
+  "runs/edit",
+  async (runData, thunkAPI) => {
+    try {
+      const { token } = thunkAPI.getState().auth.user;
+      return await runService.editRun(runData.id, runData, token);
+    } catch (error) {
+      const message =
+        (error.response && error.response.data) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 export const deleteRun = createAsyncThunk(
   "runs/delete",
   async (id, thunkAPI) => {
@@ -64,45 +80,72 @@ export const runSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(createRun.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(createRun.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.isSuccess = true;
-        state.runs.push(action.payload);
-      })
-      .addCase(createRun.rejected, (state, action) => {
-        state.isLoading = false;
-        state.isError = true;
-        state.message = action.payload;
-      })
-      .addCase(getRuns.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(getRuns.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.isSuccess = true;
-        state.runs = action.payload;
-      })
-      .addCase(getRuns.rejected, (state, action) => {
-        state.isLoading = false;
-        state.isError = true;
-        state.message = action.payload;
-      })
-      .addCase(deleteRun.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(deleteRun.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.isSuccess = true;
-        state.runs = state.runs.filter((run) => run._id !== action.payload.id);
-      })
-      .addCase(deleteRun.rejected, (state, action) => {
-        state.isLoading = false;
-        state.isError = true;
-        state.message = action.payload;
-      });
+      .addCase(createRun.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
+      .addCase(createRun.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        isSuccess: true,
+        runs: [action.payload, ...state.runs],
+      }))
+      .addCase(createRun.rejected, (state, action) => ({
+        ...state,
+        isLoading: false,
+        isError: true,
+        message: action.payload,
+      }))
+      .addCase(getRuns.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
+      .addCase(getRuns.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        isSuccess: true,
+        runs: action.payload,
+      }))
+      .addCase(getRuns.rejected, (state, action) => ({
+        ...state,
+        isLoading: false,
+        isError: true,
+        message: action.payload,
+      }))
+      .addCase(editRun.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
+      .addCase(editRun.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        isSuccess: true,
+        runs: state.runs.map((run) =>
+          run._id === action.payload._id ? action.payload : run
+        ),
+      }))
+      .addCase(editRun.rejected, (state, action) => ({
+        ...state,
+        isLoading: false,
+        isError: true,
+        message: action.payload,
+      }))
+      .addCase(deleteRun.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
+      .addCase(deleteRun.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        isSuccess: true,
+        runs: state.runs.filter((run) => run._id !== action.payload.id),
+      }))
+      .addCase(deleteRun.rejected, (state, action) => ({
+        ...state,
+        isLoading: false,
+        isError: true,
+        message: action.payload,
+      }));
   },
 });
 

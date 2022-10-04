@@ -6,7 +6,7 @@ function RunItem({ run }) {
   const dispatch = useDispatch();
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl btn-active">
+    <div className="card w-96 shadow-xl btn-active bg-base-100">
       <div className="card-body">
         <div className="card-actions justify-end">
           <button

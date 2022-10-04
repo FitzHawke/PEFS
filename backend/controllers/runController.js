@@ -5,7 +5,9 @@ const Run = require("../models/runModel");
 //  @route  GET /api/runs
 //  @access Private
 const getRuns = asyncHandler(async (req, res) => {
-  const runs = await Run.find({ user: req.user.id });
+  const runs = await Run.find({ user: req.user.id }).sort({
+    date: "desc",
+  });
 
   res.status(200).json(runs);
 });
@@ -21,6 +23,7 @@ const setRun = asyncHandler(async (req, res) => {
 
   const run = await Run.create({
     user: req.user.id,
+    date: req.body.date,
     startTime: req.body.timeStart,
     endTime: req.body.timeEnd,
     runTime: req.body.runTime,
@@ -54,10 +57,22 @@ const updateRun = asyncHandler(async (req, res) => {
     throw new Error("User not authorized");
   }
 
-  const updatedRun = await Run.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
+  const updatedRun = await Run.findByIdAndUpdate(
+    req.params.id,
+    {
+      date: req.body.date,
+      startTime: req.body.timeStart,
+      endTime: req.body.timeEnd,
+      runTime: req.body.runTime,
+      distance: req.body.distance,
+      pace: req.body.pace,
+    },
+    {
+      new: true,
+    }
+  );
 
+  console.log(updatedRun);
   res.status(200).json(updatedRun);
 });
 

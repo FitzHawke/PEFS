@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { resetModal } from "../features/ui/modalSlice";
 
-function WeightsForm() {
+function LiftsForm() {
   const dispatch = useDispatch();
 
   return (
@@ -10,7 +10,7 @@ function WeightsForm() {
       <h1 className="text-center">Feature not implemented yet 😞</h1>
       <button
         type="button"
-        className="btn btn-primary btn-wide mx-auto my-4"
+        className="btn btn-accent btn-wide mx-auto my-4"
         onClick={() => dispatch(resetModal())}
       >
         Close
@@ -19,4 +19,4 @@ function WeightsForm() {
   );
 }
 
-export default WeightsForm;
+export default LiftsForm;

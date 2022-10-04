@@ -1,35 +1,67 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { useSelector, useDispatch } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
-import Header from "./components/Header";
+import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import NewWorkout from "./pages/NewWorkout";
 import Footer from "./components/Footer";
 import Modal from "./components/Modal";
+import Header from "./components/Header";
+import SideBar from "./components/SideBar";
+import Settings from "./pages/Settings";
+import { setChecked } from "./features/ui/sideBarSlice";
+import Overview from "./pages/Overview";
 
 function App() {
+  const dispatch = useDispatch();
+  const { checked } = useSelector((state) => state.sideBar);
+
+  function onChange() {
+    dispatch(() => setChecked(checked));
+  }
+
   return (
-    <>
-      <Router>
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <div className="flex-grow container mx-auto">
+    <Router>
+      <div className="flex flex-col justify-between max-h-screen">
+        <Header />
+        <div className="drawer drawer-mobile">
+          <input
+            type="checkbox"
+            id="my-drawer-2"
+            className="drawer-toggle"
+            checked={checked}
+            onChange={onChange}
+          />
+
+          <div className="drawer-content">
             <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/newWorkout" element={<NewWorkout />} />
+              <Route path="/" element={<Landing />} />
+              <Route path="/login" element={<Landing />} />
+              <Route path="/register" element={<Landing register />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/runs" element={<Overview content="runs" />} />
+              <Route path="/rides" element={<Overview content="rides" />} />
+              <Route path="/lifting" element={<Overview content="lifts" />} />
+              <Route path="/run-dash" element={<Dashboard content="runs" />} />
+              <Route
+                path="/ride-dash"
+                element={<Dashboard content="rides" />}
+              />
+              <Route
+                path="/lift-dash"
+                element={<Dashboard content="lifts" />}
+              />
             </Routes>
           </div>
-          <Footer />
-          <Modal />
+          <SideBar />
         </div>
-      </Router>
+        <Footer />
+      </div>
+      <Modal />
       <ToastContainer />
-    </>
+    </Router>
   );
 }
 

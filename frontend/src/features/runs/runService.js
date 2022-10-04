@@ -24,6 +24,18 @@ const getRuns = async (token) => {
   return response.data;
 };
 
+const editRun = async (runId, runData, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.put(API_URL + runId, runData, config);
+
+  return response.data;
+};
+
 const deleteRun = async (runId, token) => {
   const config = {
     headers: {
@@ -38,6 +50,7 @@ const deleteRun = async (runId, token) => {
 const runService = {
   createRun,
   getRuns,
+  editRun,
   deleteRun,
 };
 
