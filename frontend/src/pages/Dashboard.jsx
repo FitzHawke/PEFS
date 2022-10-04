@@ -17,7 +17,14 @@ function Dashboard() {
     return () => dispatch(reset());
   }, [user]);
 
-  return <div>Dash</div>;
+  return (
+    <div className="flex justify-center items-center h-full">
+      <h2 className="max-w-3xl ">
+        Currently the Biking and Runs overview is implemented! Go add some rides
+        and runs from the menu on the left and view them in the overview!
+      </h2>
+    </div>
+  );
 }
 
 export default Dashboard;
