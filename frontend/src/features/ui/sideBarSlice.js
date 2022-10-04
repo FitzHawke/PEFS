@@ -9,9 +9,9 @@ export const sideBarSlice = createSlice({
   name: "sideBar",
   initialState,
   reducers: {
-    setChecked: (state, action) => {
-      state.checked = action.payload;
-    },
+    setChecked: (state, action) => ({
+      checked: action.payload,
+    }),
   },
 });
 
