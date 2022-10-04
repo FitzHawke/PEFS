@@ -81,7 +81,7 @@
 
 ## About The Project
 
-![PEFS-screenshot](https://user-images.githubusercontent.com/60191328/192620808-2a7b295d-a7c0-4442-9488-4dcab4693844.png)
+![PEFS-screenshot](https://user-images.githubusercontent.com/60191328/193888194-f4018be3-9e7a-4aa1-aeb3-3689cf70e512.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
