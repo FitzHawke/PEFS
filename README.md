@@ -2,14 +2,6 @@
 
 <a name="readme-top"></a>
 
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -87,11 +79,14 @@
 
 #### Built With
 
-- [![React][react.js]][react-url]
+- React
 - Redux
 - MongoDB
 - Node.js
 - Express.js
+- TailwindCSS
+- DaisyUI
+- Chartsjs
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -153,11 +148,13 @@ To get a local copy up and running follow these simple example steps.
 ## Roadmap
 
 - [x] Switch Auth over to using passport
-- [ ] Add biking tracking
-- [ ] Add strength workout tracking
+- [x] Add biking tracking
 - [ ] Seperate dashboards for each type of workout
 - [ ] Graphs for each dashboard
-- [ ] Implement edit functionality
+- [x] Implement edit functionality
+- [ ] Add Strength workout tracking
+- [ ] Add Weight tracking
+- [ ] Settings Page to specify theme and units
 
 See the [open issues](https://github.com/FitzHawke/PEFS/issues) for a full list of proposed features (and known issues).
 

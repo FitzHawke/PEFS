@@ -72,7 +72,6 @@ const updateRide = asyncHandler(async (req, res) => {
     }
   );
 
-  console.log(updatedRide);
   res.status(200).json(updatedRide);
 });
 

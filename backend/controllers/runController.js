@@ -72,7 +72,6 @@ const updateRun = asyncHandler(async (req, res) => {
     }
   );
 
-  console.log(updatedRun);
   res.status(200).json(updatedRun);
 });
 
