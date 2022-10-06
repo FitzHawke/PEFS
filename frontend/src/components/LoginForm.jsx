@@ -61,7 +61,10 @@ function Login() {
     <section className="flex justify-center">
       <p>
         {" "}
-        Don&apos;t have an account? <Link to="/register">Register Here!</Link>
+        Don&apos;t have an account?{" "}
+        <Link className="link link-accent" to="/register">
+          Register Here!
+        </Link>
       </p>
       <form className="form-control form-control-lg" onSubmit={onSubmit}>
         <div className="form-control">

@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import RunDash from "../components/RunDash";
 import { reset } from "../features/auth/authSlice";
 
-function Dashboard() {
+function Dashboard({ content }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -17,8 +18,12 @@ function Dashboard() {
     return () => dispatch(reset());
   }, [user]);
 
+  if (content === "run") {
+    return <RunDash />;
+  }
+
   return (
-    <div className="flex justify-center items-center h-full">
+    <div className="mx-auto px-2 max-w-5xl flex flex-col justify-center items-center h-full">
       <h2 className="max-w-3xl ">
         Currently the Biking and Runs overview is implemented! Go add some rides
         and runs from the menu on the left and view them in the overview!

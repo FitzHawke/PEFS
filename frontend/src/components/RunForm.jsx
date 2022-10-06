@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { createRun, editRun } from "../features/runs/runSlice";
 import { resetModal } from "../features/ui/modalSlice";
-import timeDifference from "../modules/timeDifference";
-import getNow from "../modules/getNow";
+import timeDifference from "../utils/timeDifference";
+import getNow from "../utils/getNow";
 
 function RunningForm({ content }) {
   const [formData, setFormData] = useState({

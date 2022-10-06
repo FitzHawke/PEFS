@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
 import { setChecked } from "../features/ui/sideBarSlice";
+import DayNightSwitch from "./DayNightSwitch";
 
 function Header() {
   const navigate = useNavigate();
@@ -41,9 +42,7 @@ function Header() {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 32 32"
-            width="32"
-            height="32"
-            className="fill-current"
+            className="fill-current w-6 h-6"
           >
             <path d="M 4 7 L 4 9 L 28 9 L 28 7 Z M 4 15 L 4 17 L 28 17 L 28 15 Z M 4 23 L 4 25 L 28 25 L 28 23 Z" />
           </svg>
@@ -52,6 +51,7 @@ function Header() {
       <div className="navbar-end">
         <ul className="menu menu-horizontal p-0">
           <li>
+            <DayNightSwitch />
             <button className="btn btn-ghost" type="button" onClick={onLogout}>
               <FaSignOutAlt /> Logout
             </button>

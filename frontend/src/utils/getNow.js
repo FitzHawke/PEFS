@@ -16,10 +16,10 @@ const currTime = () => {
 
 const offSet = () => {
   const { hour, min } = rawTime();
-  const currHour = `0${hour - 1}`.slice(-2);
-  const currMin = `0${min}`.slice(-2);
+  const pastHour = `0${hour - 1}`.slice(-2);
+  const pastMin = `0${min}`.slice(-2);
 
-  return `${currHour}:${currMin}`;
+  return `${pastHour}:${pastMin}`;
 };
 
 const currDate = () => {
