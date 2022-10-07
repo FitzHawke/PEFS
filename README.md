@@ -151,10 +151,17 @@ To get a local copy up and running follow these simple example steps.
 - [x] Add biking tracking
 - [ ] Seperate dashboards for each type of workout
 - [ ] Graphs for each dashboard
+- [ ] Graphs for each type on main dashboard
 - [x] Implement edit functionality
+- [ ] Settings Page to specify theme and units
+
+#### Long Term Plans
+
 - [ ] Add Strength workout tracking
 - [ ] Add Weight tracking
-- [ ] Settings Page to specify theme and units
+- [ ] Re-implement components to reduce code duplication
+- [ ] Utilize optimistic rendering to reduce api calls
+- [ ] Implement caching to reduce database calls
 
 See the [open issues](https://github.com/FitzHawke/PEFS/issues) for a full list of proposed features (and known issues).
 

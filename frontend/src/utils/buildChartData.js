@@ -11,42 +11,40 @@ function buildChartData(rawData, selections) {
     (a, b) => new Date(a.date) - new Date(b.date)
   );
 
-  for (let i = 0; i < sortedData.length; i += 1) {
-    if (selections.numsOrDate === "date") {
+  for (
+    let i = sortedData.length - selections.displayNum;
+    i < sortedData.length;
+    i += 1
+  ) {
+    if (selections.numsOrDate === "d") {
       labels.push(sortedData[i].date);
     } else {
       labels.push(i + 1);
     }
 
-    if (selections.paceOrDistance === "pace") {
+    if (selections.paceOrDistance === "p") {
       data.push(sortedData[i].pace);
     } else {
       data.push(sortedData[i].distance);
     }
   }
 
-  const dataset = {
-    label: "Pace/Date",
-    backgroundColor: `hsl(${lineColor})`,
-    borderColor: `hsl(${lineColor})`,
-    color: `hsl(${textColor})`,
+  const dataLabel = selections.paceOrDistance === "p" ? "Pace" : "Distance";
+
+  const chartData = {
+    labels,
+    datasets: [
+      {
+        label: dataLabel,
+        backgroundColor: `hsl(${lineColor})`,
+        borderColor: `hsl(${lineColor})`,
+        color: `hsl(${textColor})`,
+        data,
+      },
+    ],
   };
-
-  // const chartData = {
-  //   labels,
-  //   datasets: [
-  //     {
-  //       label: "Pace/Date",
-  //       backgroundColor: `hsl(${lineColor})`,
-  //       borderColor: `hsl(${lineColor})`,
-  //       color: `hsl(${textColor})`,
-  //       data,
-  //     },
-  //   ],
-  // };
-
-  // return chartData;
-  return { labels, data, dataset };
+  return chartData;
+  // return { labels, data, dataset };
 }
 
 export default buildChartData;

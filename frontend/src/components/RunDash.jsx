@@ -12,12 +12,11 @@ function RunDash() {
   const { user } = useSelector((state) => state.auth);
   const { runs, isError, message } = useSelector((state) => state.runs);
   const [selections, setSelections] = useState({
-    paceOrDistance: "distance",
-    numsOrDate: "numbers",
-    displayNum: "10",
+    displayNum: "1",
+    chartDisplay: "pn",
   });
 
-  const { displayNum } = selections;
+  const { displayNum, chartDisplay } = selections;
 
   useEffect(() => {
     if (isError) {
@@ -39,61 +38,93 @@ function RunDash() {
     });
   }
 
+  function onNumChange(e) {
+    if (e.target.value > runs.length) {
+      setSelections({
+        ...selections,
+        [e.target.name]: runs.length,
+      });
+    } else {
+      setSelections({
+        ...selections,
+        [e.target.name]: e.target.value,
+      });
+    }
+  }
+
   return (
     <div className="mx-auto px-2 max-w-5xl flex flex-col justify-center items-center h-full">
-      <LineChart
-        rawData={runs}
-        pod={selections.paceOrDistance}
-        nod={selections.numsOrDate}
-        disNum={displayNum}
-      />
+      {runs.length > 0 && (
+        <LineChart
+          rawData={runs}
+          pod={chartDisplay[0]}
+          nod={chartDisplay[1]}
+          disNum={displayNum}
+        />
+      )}
       <div>
-        <div>
-          <input
-            type="radio"
-            name="paceOrDistance"
-            className="radio radio-accent"
-            checked={selections.paceOrDistance === "distance"}
-            value="distance"
+        <label htmlFor="chartDisplay">
+          Data to be displayed on chart
+          <select
+            name="chartDisplay"
+            id="chartDisplay"
             onChange={onChange}
-          />
-          <input
-            type="radio"
-            name="paceOrDistance"
-            className="radio radio-accent"
-            checked={selections.paceOrDistance === "pace"}
-            value="pace"
-            onChange={onChange}
-          />
-        </div>
-        <div>
-          <input
-            type="radio"
-            name="numsOrDate"
-            className="radio radio-accent"
-            checked={selections.numsOrDate === "numbers"}
-            value="numbers"
-            onChange={onChange}
-          />
-          <input
-            type="radio"
-            name="numsOrDate"
-            className="radio radio-accent"
-            checked={selections.numsOrDate === "date"}
-            value="date"
-            onChange={onChange}
-          />
-        </div>
+            className="select select-accent w-full max-w-xs"
+          >
+            <option
+              name="chartDisplay"
+              selected={chartDisplay === "pn"}
+              value="pn"
+            >
+              Pace With Number
+            </option>
+            <option
+              name="chartDisplay"
+              selected={chartDisplay === "dn"}
+              value="dn"
+            >
+              Distance With Number
+            </option>
+            <option
+              name="chartDisplay"
+              selected={chartDisplay === "pd"}
+              value="pd"
+            >
+              Pace With Date
+            </option>
+            <option
+              name="chartDisplay"
+              selected={chartDisplay === "dd"}
+              value="dd"
+            >
+              Distance With Date
+            </option>
+          </select>
+        </label>
         {runs && (
-          <input
-            name="displayNum"
-            type="range"
-            min="1"
-            max={`${runs.length}`}
-            value={displayNum}
-            className="range range-accent"
-            onChange={onChange}
-          />
+          <label htmlFor="display">
+            <input
+              name="displayNum"
+              id="display"
+              type="range"
+              min="1"
+              max={`${runs.length}`}
+              value={displayNum}
+              className="range range-accent"
+              data-popup-enabled="true"
+              onChange={onChange}
+            />
+            <input
+              name="displayNum"
+              id="display"
+              type="text"
+              placeholder="Type here"
+              value={displayNum}
+              onChange={onNumChange}
+              className="input input-bordered input-accent w-12"
+            />
+            Display
+          </label>
         )}
       </div>
     </div>

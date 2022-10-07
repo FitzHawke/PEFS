@@ -13,6 +13,20 @@ function LineChart({ rawData, pod, nod, disNum }) {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
+    scales: {
+      y: {
+        title: {
+          display: true,
+          text: "Pace (km/h)",
+        },
+      },
+      x: {
+        title: {
+          display: true,
+          text: "Run Number",
+        },
+      },
+    },
     plugins: {
       title: {
         display: true,
@@ -23,28 +37,29 @@ function LineChart({ rawData, pod, nod, disNum }) {
 
   const chartRef = useRef();
 
-  let builtData = buildChartData(rawData, selections);
-  const chartData = { labels: builtData.labels, datasets: [builtData.dataset] };
-  chartData.datasets[0].data = builtData.data;
+  let chartData = buildChartData(rawData, selections);
 
   useEffect(() => {
     const chart = chartRef.current;
-    builtData = buildChartData(rawData, selections);
+    const chartOpts = chart.options.scales;
+    chartData = buildChartData(rawData, selections);
 
-    if (chart.data.labels !== builtData.labels) {
-      chart.data.labels = builtData.labels;
-      chart.update();
-    }
+    if (chart.data !== chartData) {
+      chart.data = chartData;
 
-    if (chart.data.datasets[0].data !== builtData.data) {
-      chart.data.datasets[0].data = builtData.data;
+      if (pod === "d") chartOpts.y.title.text = "Distance (km)";
+      else if (pod === "p") chartOpts.y.title.text = "Pace (km/h)";
+
+      if (nod === "n") chartOpts.x.title.text = "Run Number";
+      else if (nod === "d") chartOpts.x.title.text = "Run Date (YYYY-MM-DD)";
+
       chart.update();
     }
   }, [selections]);
 
   return (
     <div className=" w-full h-96 relative">
-      <Line options={options} data={chartData} ref={chartRef} />
+      {chartData && <Line options={options} data={chartData} ref={chartRef} />}
     </div>
   );
 }
