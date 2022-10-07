@@ -30,8 +30,9 @@ function Dashboard({ content }) {
   return (
     <div className="mx-auto px-2 max-w-5xl flex flex-col justify-center items-center h-full">
       <h2 className="max-w-3xl ">
-        Currently the Biking and Runs overview is implemented! Go add some rides
-        and runs from the menu on the left and view them in the overview!
+        This dashboard is still being implemented! Go add some rides and runs
+        from the menu on the left then view them in the overview and respective
+        dashboards!
       </h2>
     </div>
   );
