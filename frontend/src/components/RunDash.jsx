@@ -12,7 +12,9 @@ function RunDash() {
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth);
-  const { runs, isError, message } = useSelector((state) => state.runs);
+  const { runs, isLoading, isError, message } = useSelector(
+    (state) => state.runs
+  );
   const [selections, setSelections] = useState({
     displayNum: `${Math.min(Math.max(2, runs.length), 10)}`,
     chartDisplay: "pn",
@@ -54,7 +56,7 @@ function RunDash() {
     }
   }
 
-  if (runs.length === 0) {
+  if (isLoading) {
     return <Spinner />;
   }
 

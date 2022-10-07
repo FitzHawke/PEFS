@@ -12,7 +12,9 @@ function RideDash() {
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth);
-  const { rides, isError, message } = useSelector((state) => state.rides);
+  const { rides, isLoading, isError, message } = useSelector(
+    (state) => state.rides
+  );
   const [selections, setSelections] = useState({
     displayNum: `${Math.min(Math.max(2, rides.length), 10)}`,
     chartDisplay: "pn",
@@ -54,7 +56,7 @@ function RideDash() {
     }
   }
 
-  if (rides.length === 0) {
+  if (isLoading) {
     return <Spinner />;
   }
 
