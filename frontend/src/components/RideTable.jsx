@@ -50,7 +50,7 @@ function RideTable() {
         {rides.length > 0 ? (
           rides.map((ride, i) => (
             // eslint-disable-next-line no-underscore-dangle
-            <RideRow key={ride._id} index={i} ride={ride} />
+            <RideRow key={ride._id} index={rides.length - 1 - i} ride={ride} />
           ))
         ) : (
           <tr>

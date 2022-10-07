@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { getRuns, reset } from "../features/runs/runSlice";
+import { getRides, reset } from "../features/rides/rideSlice";
 import LineChart from "./LineChart";
 
-function RunDash() {
+function RideDash() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth);
-  const { runs, isError, message } = useSelector((state) => state.runs);
+  const { rides, isError, message } = useSelector((state) => state.rides);
   const [selections, setSelections] = useState({
-    displayNum: `${Math.min(Math.max(1, runs.length), 10)}`,
+    displayNum: `${Math.min(Math.max(1, rides.length), 10)}`,
     chartDisplay: "pn",
   });
 
@@ -25,7 +25,7 @@ function RunDash() {
     if (!user) {
       navigate("/login");
     } else {
-      dispatch(getRuns());
+      dispatch(getRides());
     }
 
     return () => dispatch(reset());
@@ -39,10 +39,10 @@ function RunDash() {
   }
 
   function onNumChange(e) {
-    if (e.target.value > runs.length) {
+    if (e.target.value > rides.length) {
       setSelections({
         ...selections,
-        [e.target.name]: runs.length,
+        [e.target.name]: rides.length,
       });
     } else {
       setSelections({
@@ -54,13 +54,13 @@ function RunDash() {
 
   return (
     <div className="mx-auto px-2 max-w-5xl flex flex-col justify-center gap-4 items-center h-full">
-      {runs.length > 0 && (
+      {rides.length > 0 && (
         <LineChart
-          rawData={runs}
+          rawData={rides}
           pod={chartDisplay[0]}
           nod={chartDisplay[1]}
           disNum={displayNum}
-          workoutType="Run"
+          workoutType="Ride"
         />
       )}
       <div className="flex justify-between items-end h-20">
@@ -87,10 +87,10 @@ function RunDash() {
             </option>
           </select>
         </label>
-        {runs && (
+        {rides && (
           <label htmlFor="display" className="w-1/2">
             <div className="flex justify-between align-middle">
-              <span className="my-auto">Number of Runs to Display</span>
+              <span className="my-auto">Number of Rides to Display</span>
               <input
                 name="displayNum"
                 id="display"
@@ -106,7 +106,7 @@ function RunDash() {
               id="display"
               type="range"
               min="1"
-              max={`${runs.length}`}
+              max={`${rides.length}`}
               value={displayNum}
               className="range range-accent"
               data-popup-enabled="true"
@@ -119,4 +119,4 @@ function RunDash() {
   );
 }
 
-export default RunDash;
+export default RideDash;

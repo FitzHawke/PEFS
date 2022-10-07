@@ -4,7 +4,7 @@ import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import buildChartData from "../utils/buildChartData";
 
-function LineChart({ rawData, pod, nod, disNum }) {
+function LineChart({ rawData, pod, nod, disNum, workoutType }) {
   const selections = {
     paceOrDistance: pod,
     numsOrDate: nod,
@@ -23,7 +23,7 @@ function LineChart({ rawData, pod, nod, disNum }) {
       x: {
         title: {
           display: true,
-          text: "Run Number",
+          text: `${workoutType} Number`,
         },
       },
     },
@@ -50,8 +50,18 @@ function LineChart({ rawData, pod, nod, disNum }) {
       if (pod === "d") chartOpts.y.title.text = "Distance (km)";
       else if (pod === "p") chartOpts.y.title.text = "Pace (km/h)";
 
-      if (nod === "n") chartOpts.x.title.text = "Run Number";
-      else if (nod === "d") chartOpts.x.title.text = "Run Date (YYYY-MM-DD)";
+      if (nod === "n") chartOpts.x.title.text = `${workoutType} Number`;
+      else if (nod === "d")
+        chartOpts.x.title.text = `${workoutType} Date (YYYY-MM-DD)`;
+
+      if (nod === "n" && pod === "p")
+        chart.options.plugins.title.text = `${workoutType} Pace / ${workoutType} Number`;
+      else if (nod === "n" && pod === "d")
+        chart.options.plugins.title.text = `${workoutType} Distance / ${workoutType} Number`;
+      else if (nod === "d" && pod === "p")
+        chart.options.plugins.title.text = `${workoutType} Pace / ${workoutType} Date`;
+      else if (nod === "d" && pod === "d")
+        chart.options.plugins.title.text = `${workoutType} Distance / ${workoutType} Date`;
 
       chart.update();
     }

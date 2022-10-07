@@ -50,7 +50,7 @@ function RunTable() {
         {runs.length > 0 ? (
           runs.map((run, i) => (
             // eslint-disable-next-line no-underscore-dangle
-            <RunRow key={run._id} index={i} run={run} />
+            <RunRow key={run._id} index={runs.length - 1 - i} run={run} />
           ))
         ) : (
           <tr>

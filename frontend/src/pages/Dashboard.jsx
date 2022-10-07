@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import RideDash from "../components/RideDash";
 import RunDash from "../components/RunDash";
 import { reset } from "../features/auth/authSlice";
 
@@ -20,6 +21,10 @@ function Dashboard({ content }) {
 
   if (content === "run") {
     return <RunDash />;
+  }
+
+  if (content === "ride") {
+    return <RideDash />;
   }
 
   return (
