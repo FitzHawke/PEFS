@@ -149,16 +149,16 @@ To get a local copy up and running follow these simple example steps.
 
 - [x] Switch Auth over to using passport
 - [x] Add biking tracking
-- [ ] Seperate dashboards for each type of workout
-- [ ] Graphs for each dashboard
-- [ ] Graphs for each type on main dashboard
 - [x] Implement edit functionality
-- [ ] Settings Page to specify theme and units
+- [x] Graphs for each dashboard type
+- [ ] Add demo user
+- [ ] Graphs for each type on main dashboard
 
 #### Long Term Plans
 
 - [ ] Add Strength workout tracking
 - [ ] Add Weight tracking
+- [ ] Settings Page to specify theme and units
 - [ ] Re-implement components to reduce code duplication
 - [ ] Utilize optimistic rendering to reduce api calls
 - [ ] Implement caching to reduce database calls
