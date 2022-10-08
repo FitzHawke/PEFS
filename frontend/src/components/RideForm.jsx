@@ -81,7 +81,7 @@ function RideningForm({ content }) {
     <section className="flex justify-center flex-col">
       <form className="form-control form-control-lg" onSubmit={onSubmit}>
         <div className="form-control my-2">
-          <label className="label flex-col items-start px-0" htmlFor="distance">
+          <label className="label flex-col items-start px-0" htmlFor="date">
             <p className="label-text px-4">Date of your ride</p>
             <input
               type="date"

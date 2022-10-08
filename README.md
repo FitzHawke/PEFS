@@ -151,7 +151,7 @@ To get a local copy up and running follow these simple example steps.
 - [x] Add biking tracking
 - [x] Implement edit functionality
 - [x] Graphs for each dashboard type
-- [ ] Add demo user
+- [x] Add demo user
 - [ ] Graphs for each type on main dashboard
 
 #### Long Term Plans
