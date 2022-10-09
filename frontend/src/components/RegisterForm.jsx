@@ -62,8 +62,8 @@ function Register() {
 
   const onDemoClick = () => {
     const userData = {
-      email: import.meta.env.VITE_DEMO_USER,
-      password: import.meta.env.VITE_DEMO_PASS,
+      email: "demo@demo.com",
+      password: "demouser",
     };
     dispatch(login(userData));
   };
@@ -82,18 +82,16 @@ function Register() {
             Sign In Here!
           </Link>
         </p>
-        {import.meta.env.VITE_MODE === "demo" && (
-          <p>
-            Don&apos;t want to make an account?
-            <button
-              className="link link-accent"
-              type="button"
-              onClick={onDemoClick}
-            >
-              Sign in with demo user
-            </button>
-          </p>
-        )}
+        <p>
+          Don&apos;t want to make an account?
+          <button
+            className="link link-accent"
+            type="button"
+            onClick={onDemoClick}
+          >
+            Sign in with demo user
+          </button>
+        </p>
       </div>
       <form onSubmit={onSubmit}>
         <div className="form-control">
