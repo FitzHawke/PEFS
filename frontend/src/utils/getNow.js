@@ -25,7 +25,8 @@ const offSet = () => {
 const currDate = () => {
   const currentDate = new Date();
   const day = `0${currentDate.getDate()}`.slice(-2);
-  const month = `0${currentDate.getMonth()}`.slice(-2);
+  // Have to add 1 because months are zero indexed in javascript
+  const month = `0${currentDate.getMonth() + 1}`.slice(-2);
   const year = currentDate.getFullYear();
 
   return `${year}-${month}-${day}`;

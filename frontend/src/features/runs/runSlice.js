@@ -75,7 +75,13 @@ export const runSlice = createSlice({
   name: "runs",
   initialState,
   reducers: {
-    reset: () => initialState,
+    reset: (state) => ({
+      ...state,
+      isError: false,
+      isSuccess: false,
+      isLoading: false,
+      message: "",
+    }),
   },
   extraReducers: (builder) => {
     builder
