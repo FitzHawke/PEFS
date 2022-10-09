@@ -82,7 +82,7 @@ function RunDash() {
             disNum={displayNum}
             workoutType="Run"
           />
-          <div className="flex justify-between items-end h-20">
+          <div className="flex justify-between gap-2 h-20">
             <label htmlFor="chartDisplay" className="w-1/2">
               Data to be displayed on chart
               <select

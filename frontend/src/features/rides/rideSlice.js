@@ -78,7 +78,13 @@ export const rideSlice = createSlice({
   name: "rides",
   initialState,
   reducers: {
-    reset: () => initialState,
+    reset: (state) => ({
+      ...state,
+      isError: false,
+      isSuccess: false,
+      isLoading: false,
+      message: "",
+    }),
   },
   extraReducers: (builder) => {
     builder

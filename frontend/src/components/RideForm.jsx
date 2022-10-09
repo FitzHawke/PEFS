@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { createRide, editRide } from "../features/rides/rideSlice";
 import { resetModal } from "../features/ui/modalSlice";
@@ -7,6 +7,7 @@ import timeDifference from "../utils/timeDifference";
 import getNow from "../utils/getNow";
 
 function RideningForm({ content }) {
+  const { user } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
     date: "",
     distance: 0,
@@ -47,6 +48,14 @@ function RideningForm({ content }) {
         position: toast.POSITION.TOP_RIGHT,
         className: "alert alert-error",
       });
+    } else if (user.name === "DemoUser") {
+      toast.error(
+        "Please logout and set up a new user to add/modify exercises",
+        {
+          position: toast.POSITION.TOP_RIGHT,
+          className: "alert alert-error",
+        }
+      );
     } else {
       const rideTime = timeDifference(timeStart, timeEnd);
       const pace = +(distance / (rideTime / 60)).toFixed(2);
