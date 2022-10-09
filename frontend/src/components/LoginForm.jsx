@@ -59,13 +59,15 @@ function Login() {
 
   return (
     <section className="flex justify-center">
-      <p>
-        {" "}
-        Don&apos;t have an account?{" "}
-        <Link className="link link-accent" to="/register">
-          Register Here!
-        </Link>
-      </p>
+      <div className="flex flex-col justify-center gap-8">
+        <p>
+          {" "}
+          Don&apos;t have an account?{" "}
+          <Link className="link link-accent" to="/register">
+            Register Here!
+          </Link>
+        </p>
+      </div>
       <form className="form-control form-control-lg" onSubmit={onSubmit}>
         <div className="form-control">
           <label className="label flex-col items-start px-0" htmlFor="email">
