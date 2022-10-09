@@ -48,7 +48,7 @@ function RideningForm({ content }) {
         position: toast.POSITION.TOP_RIGHT,
         className: "alert alert-error",
       });
-    } else if (user.name === "DemoUser") {
+    } else if (user.email === "demo@demo.com") {
       toast.error(
         "Please logout and set up a new user to add/modify exercises",
         {

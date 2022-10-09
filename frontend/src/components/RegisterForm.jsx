@@ -61,10 +61,18 @@ function Register() {
   };
 
   const onDemoClick = () => {
-    const userData = {
-      email: import.meta.env.VITE_DEMO_USER,
-      password: import.meta.env.VITE_DEMO_PASS,
-    };
+    let userData = {};
+    if (process.env.VITE_MODE === "demo") {
+      userData = {
+        email: process.env.VITE_DEMO_USER,
+        password: process.env.VITE_DEMO_PASS,
+      };
+    } else {
+      userData = {
+        email: import.meta.env.VITE_DEMO_USER,
+        password: import.meta.env.VITE_DEMO_PASS,
+      };
+    }
     dispatch(login(userData));
   };
 
@@ -82,7 +90,8 @@ function Register() {
             Sign In Here!
           </Link>
         </p>
-        {import.meta.env.VITE_MODE === "demo" && (
+        {(process.env.VITE_MODE === "demo" ||
+          import.meta.env.VITE_MODE === "demo") && (
           <p>
             Don&apos;t want to make an account?
             <button
