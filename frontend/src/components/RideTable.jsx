@@ -17,8 +17,12 @@ function RideTable() {
 
   useEffect(() => {
     if (isError) {
-      toast.error(message);
+      toast.error(message, {
+        position: toast.POSITION.TOP_RIGHT,
+        className: "alert alert-error",
+      });
     }
+
     if (!user) {
       navigate("/login");
     } else {
@@ -26,7 +30,7 @@ function RideTable() {
     }
 
     return () => dispatch(reset());
-  }, [user, navigate, isError, message, dispatch]);
+  }, [user, isError]);
 
   if (isLoading) {
     return <Spinner />;

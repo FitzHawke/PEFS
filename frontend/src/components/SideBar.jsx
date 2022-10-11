@@ -105,18 +105,6 @@ function SideBar() {
         </li>
         <div className="divider" />
         <li className="w-full">
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "!bg-accent !text-accent-content"
-                : "active:bg-accent-focus"
-            }
-            to="/settings"
-          >
-            Settings
-          </NavLink>
-        </li>
-        <li className="w-full">
           <button className="btn-ghost" type="button" onClick={onLogout}>
             Logout
           </button>

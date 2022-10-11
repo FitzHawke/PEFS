@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { getRuns, reset } from "../features/runs/runSlice";
 import { showModal } from "../features/ui/modalSlice";
 import LineChart from "./LineChart";
+import StatSection from "./StatSection";
 import Spinner from "./Spinner";
 
 function RunDash() {
@@ -24,8 +25,12 @@ function RunDash() {
 
   useEffect(() => {
     if (isError) {
-      toast.error(message);
+      toast.error(message, {
+        position: toast.POSITION.TOP_RIGHT,
+        className: "alert alert-error",
+      });
     }
+
     if (!user) {
       navigate("/login");
     } else {
@@ -33,7 +38,7 @@ function RunDash() {
     }
 
     return () => dispatch(reset());
-  }, [user, navigate, isError, message, dispatch]);
+  }, [user, isError]);
 
   function onChange(e) {
     setSelections({
@@ -61,7 +66,7 @@ function RunDash() {
   }
 
   return (
-    <div className="mx-auto px-2 max-w-5xl flex flex-col justify-center gap-4 items-center h-full">
+    <div className="mx-auto px-2 max-w-5xl flex flex-col gap-4 items-center h-full">
       {runs.length < 2 ? (
         <div className="flex flex-col h-48 gap-4 justify-center items-center">
           <h3>Add more Runs to view a nice graph here!</h3>
@@ -74,15 +79,16 @@ function RunDash() {
           </button>
         </div>
       ) : (
-        <>
+        <div className="w-full">
           <LineChart
             rawData={runs}
             pod={chartDisplay[0]}
             nod={chartDisplay[1]}
             disNum={displayNum}
             workoutType="Run"
+            trend
           />
-          <div className="flex justify-between gap-2 h-20">
+          <div className="flex flex-col lg:flex-row text-center items-center justify-between gap-2 h-48 lg:h-20">
             <label htmlFor="chartDisplay" className="w-1/2">
               Data to be displayed on chart
               <select
@@ -132,7 +138,10 @@ function RunDash() {
               />
             </label>
           </div>
-        </>
+          {runs.length > 0 && (
+            <StatSection data={runs} type="run" num={displayNum} title="Run" />
+          )}
+        </div>
       )}
     </div>
   );
