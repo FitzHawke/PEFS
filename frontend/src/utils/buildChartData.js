@@ -23,7 +23,6 @@ function buildTrendline(data, selection, number) {
     trendLine.push(+(slope * i + intercept).toFixed(2));
   }
 
-  console.log(trendLine);
   return trendLine;
 }
 
@@ -81,7 +80,7 @@ function buildChartData(rawData, selections) {
       selections.displayNum
     );
     chartData.datasets.push({
-      label: "trend",
+      label: "Trend",
       backgroundColor: `hsl(${trendColor})`,
       borderColor: `hsl(${trendColor})`,
       color: `hsl(${textColor})`,

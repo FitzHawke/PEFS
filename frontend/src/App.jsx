@@ -9,7 +9,6 @@ import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
-import Settings from "./pages/Settings";
 import { setChecked } from "./features/ui/sideBarSlice";
 import Overview from "./pages/Overview";
 import MainDash from "./pages/MainDash";
@@ -24,9 +23,9 @@ function App() {
 
   return (
     <Router>
-      <div className="flex flex-col justify-between max-h-screen">
+      <div className="flex flex-col justify-between h-screen">
         <Header />
-        <div className="drawer drawer-mobile">
+        <div className="drawer drawer-mobile h-full">
           <input
             type="checkbox"
             id="my-drawer-2"
@@ -41,7 +40,6 @@ function App() {
               <Route path="/login" element={<Landing />} />
               <Route path="/register" element={<Landing register />} />
               <Route path="/dashboard" element={<MainDash />} />
-              <Route path="/settings" element={<Settings />} />
               <Route path="/runs" element={<Overview content="run" />} />
               <Route path="/run-dash" element={<Dashboard content="run" />} />
               <Route path="/rides" element={<Overview content="ride" />} />

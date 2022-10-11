@@ -26,29 +26,30 @@ function DashSection({ data, type, title }) {
               <div className="stat px-1 mx-auto place-items-center">
                 <div className="stat-title">Total {title}</div>
                 <div className="stat-value">{data.length}</div>
-                <div className="stat-desc">Jan 1st - Feb 1st</div>
+                <div className="stat-desc">{data[data.length - 1].date}</div>
+                <div className="stat-desc">{data[0].date}</div>
               </div>
 
               <div className="stat px-1 mx-auto place-items-center">
                 <div className="stat-title">Avg. Distance</div>
-                <div className="stat-desc">
-                  Last {Math.min(data.length, 10)} {title}
-                </div>
                 <div className="stat-value">
                   {getStats(data, "distance", Math.min(data.length, 10)).avg}
                 </div>
                 <div className="stat-desc">km</div>
+                <div className="stat-desc">
+                  Last {Math.min(data.length, 10)} {title}
+                </div>
               </div>
 
               <div className="stat px-1 mx-auto place-items-center">
                 <div className="stat-title">Avg. Pace</div>
-                <div className="stat-desc">
-                  Last {Math.min(data.length, 10)} {title}
-                </div>
                 <div className="stat-value">
                   {getStats(data, "pace", Math.min(data.length, 10)).avg}
                 </div>
                 <div className="stat-desc">km/h</div>
+                <div className="stat-desc">
+                  Last {Math.min(data.length, 10)} {title}
+                </div>
               </div>
             </div>
             <div className="card-actions">

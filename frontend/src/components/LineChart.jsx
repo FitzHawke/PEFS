@@ -44,8 +44,6 @@ function LineChart({ rawData, pod, nod, disNum, workoutType, trend }) {
     const chart = chartRef.current;
     const chartOpts = chart.options.scales;
     chartData = buildChartData(rawData, selections);
-    console.log("buildData", chartData);
-    console.log("chartedData", chart.data);
 
     if (chart.data !== chartData) {
       chart.data = chartData;

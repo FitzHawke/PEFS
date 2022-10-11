@@ -6,6 +6,7 @@ import { getRides, reset } from "../features/rides/rideSlice";
 import { showModal } from "../features/ui/modalSlice";
 import LineChart from "./LineChart";
 import Spinner from "./Spinner";
+import StatSection from "./StatSection";
 
 function RideDash() {
   const navigate = useNavigate();
@@ -65,7 +66,7 @@ function RideDash() {
   }
 
   return (
-    <div className="mx-auto px-2 max-w-5xl flex flex-col justify-center gap-4 items-center h-full">
+    <div className="mx-auto px-2 max-w-5xl flex flex-col gap-4 items-center h-full">
       {rides.length < 2 ? (
         <div className="flex flex-col h-48 gap-4 justify-center items-center">
           <h3>Add more Bike Rides to view a nice graph here!</h3>
@@ -78,7 +79,7 @@ function RideDash() {
           </button>
         </div>
       ) : (
-        <>
+        <div className="w-full">
           <LineChart
             rawData={rides}
             pod={chartDisplay[0]}
@@ -87,7 +88,7 @@ function RideDash() {
             workoutType="Ride"
             trend
           />
-          <div className="flex justify-between gap-2 h-20">
+          <div className="flex flex-col lg:flex-row text-center items-center justify-between gap-2 h-40 lg:h-20">
             <label htmlFor="chartDisplay" className="w-1/2">
               Data to be displayed on chart
               <select
@@ -137,7 +138,15 @@ function RideDash() {
               />
             </label>
           </div>
-        </>
+          {rides.length > 0 && (
+            <StatSection
+              data={rides}
+              type="ride"
+              num={displayNum}
+              title="Bike Ride"
+            />
+          )}
+        </div>
       )}
     </div>
   );
