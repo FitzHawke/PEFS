@@ -2,7 +2,7 @@ import React from "react";
 import LoginForm from "../components/LoginForm";
 import RegisterForm from "../components/RegisterForm";
 
-function EntryPage({ register }) {
+function Landing({ register }) {
   return (
     <div className="hero flex-grow h-full bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
@@ -20,4 +20,4 @@ function EntryPage({ register }) {
   );
 }
 
-export default EntryPage;
+export default Landing;

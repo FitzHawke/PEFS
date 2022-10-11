@@ -12,6 +12,7 @@ import SideBar from "./components/SideBar";
 import Settings from "./pages/Settings";
 import { setChecked } from "./features/ui/sideBarSlice";
 import Overview from "./pages/Overview";
+import MainDash from "./pages/MainDash";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ function App() {
               <Route path="/" element={<Landing />} />
               <Route path="/login" element={<Landing />} />
               <Route path="/register" element={<Landing register />} />
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard" element={<MainDash />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/runs" element={<Overview content="run" />} />
               <Route path="/run-dash" element={<Dashboard content="run" />} />

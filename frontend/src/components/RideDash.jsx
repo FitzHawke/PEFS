@@ -24,8 +24,12 @@ function RideDash() {
 
   useEffect(() => {
     if (isError) {
-      toast.error(message);
+      toast.error(message, {
+        position: toast.POSITION.TOP_RIGHT,
+        className: "alert alert-error",
+      });
     }
+
     if (!user) {
       navigate("/login");
     } else {
@@ -33,7 +37,7 @@ function RideDash() {
     }
 
     return () => dispatch(reset());
-  }, [user, navigate, isError, message, dispatch]);
+  }, [user, isError]);
 
   function onChange(e) {
     setSelections({
