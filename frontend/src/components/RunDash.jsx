@@ -85,6 +85,7 @@ function RunDash() {
             nod={chartDisplay[1]}
             disNum={displayNum}
             workoutType="Run"
+            trend
           />
           <div className="flex justify-between gap-2 h-20">
             <label htmlFor="chartDisplay" className="w-1/2">

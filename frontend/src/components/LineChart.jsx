@@ -4,11 +4,12 @@ import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import buildChartData from "../utils/buildChartData";
 
-function LineChart({ rawData, pod, nod, disNum, workoutType }) {
+function LineChart({ rawData, pod, nod, disNum, workoutType, trend }) {
   const selections = {
     paceOrDistance: pod,
     numsOrDate: nod,
     displayNum: disNum,
+    trend,
   };
   const options = {
     responsive: true,
@@ -43,6 +44,8 @@ function LineChart({ rawData, pod, nod, disNum, workoutType }) {
     const chart = chartRef.current;
     const chartOpts = chart.options.scales;
     chartData = buildChartData(rawData, selections);
+    console.log("buildData", chartData);
+    console.log("chartedData", chart.data);
 
     if (chart.data !== chartData) {
       chart.data = chartData;
@@ -68,7 +71,7 @@ function LineChart({ rawData, pod, nod, disNum, workoutType }) {
   }, [selections]);
 
   return (
-    <div className=" w-full h-96 relative">
+    <div className="w-full h-96 relative">
       {chartData && <Line options={options} data={chartData} ref={chartRef} />}
     </div>
   );

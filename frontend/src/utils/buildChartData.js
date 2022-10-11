@@ -1,6 +1,36 @@
+function buildTrendline(data, selection, number) {
+  let sumX = 0;
+  let sumY = 0;
+  let sumXY = 0;
+  let sumX2 = 0;
+  let j = 0;
+
+  for (let i = data.length - number; i < data.length; i += 1) {
+    const x = j;
+    const y = data[i][selection];
+    sumX += x;
+    sumY += y;
+    sumXY += x * y;
+    sumX2 += x ** 2;
+    j += 1;
+  }
+
+  const slope = (number * sumXY - sumX * sumY) / (number * sumX2 - sumX ** 2);
+  const intercept = (sumY - slope * sumX) / number;
+
+  const trendLine = [];
+  for (let i = 0; i < number; i += 1) {
+    trendLine.push(+(slope * i + intercept).toFixed(2));
+  }
+
+  console.log(trendLine);
+  return trendLine;
+}
+
 function buildChartData(rawData, selections) {
   const style = getComputedStyle(document.body);
   const lineColor = style.getPropertyValue("--a");
+  const trendColor = style.getPropertyValue("--p");
   const textColor = style.getPropertyValue("--ac");
 
   // rawData.sort((a, b) => a.date - b.date);
@@ -43,8 +73,23 @@ function buildChartData(rawData, selections) {
       },
     ],
   };
+
+  if (selections.trend) {
+    const trendLine = buildTrendline(
+      sortedData,
+      selections.paceOrDistance === "p" ? "pace" : "distance",
+      selections.displayNum
+    );
+    chartData.datasets.push({
+      label: "trend",
+      backgroundColor: `hsl(${trendColor})`,
+      borderColor: `hsl(${trendColor})`,
+      color: `hsl(${textColor})`,
+      data: trendLine,
+    });
+  }
+
   return chartData;
-  // return { labels, data, dataset };
 }
 
 export default buildChartData;
