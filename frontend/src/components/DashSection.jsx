@@ -66,16 +66,16 @@ function DashSection({ data, type, title }) {
           </div>
         </>
       ) : (
-        <>
+        <div className="flex flex-col justify-center items-center">
           <div>Add more {title} to display beautiful charts and stats!</div>
           <button
-            className="btn btn-accent btn-wide"
+            className="btn btn-accent btn-wide my-10"
             type="button"
             onClick={() => dispatch(showModal({ type: type.toLowerCase() }))}
           >
             Add New {type}
           </button>
-        </>
+        </div>
       )}
     </div>
   );
