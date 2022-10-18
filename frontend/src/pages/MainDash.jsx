@@ -59,7 +59,9 @@ function MainDash() {
 
   return (
     <div className="mx-auto px-2 flex flex-col justify-around items-center text-center">
-      <h2 className="text-5xl lg:text-8xl">Welcome {user ? user.name : ""}!</h2>
+      <h2 className="text-5xl lg:text-8xl pb-8">
+        Welcome {user ? user.name : ""}!
+      </h2>
       <div className="flex flex-col lg:flex-row gap-4 justify-around w-full h-full">
         <DashSection data={runs} type="Run" title="Runs" />
         <DashSection data={rides} type="Ride" title="Bike Rides" />
