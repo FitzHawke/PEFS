@@ -4,14 +4,12 @@ const express = require("express");
 const colors = require("colors");
 const dotenv = require("dotenv").config();
 const passport = require("passport");
+const mongoose = require("mongoose");
 const { errorHandler } = require("./middleware/errorMiddleware");
-const connectDB = require("./config/db");
 
 const port = process.env.PORT || 5000;
 
 require("./config/passport");
-
-connectDB();
 
 const app = express();
 
@@ -38,5 +36,18 @@ if (process.env.NODE_ENV === "production") {
   app.get("/", (req, res) => res.send("Please set to production"));
 }
 
-// eslint-disable-next-line no-console
-app.listen(port, () => console.log(`server started on port ${port}`));
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+
+    console.log(`MongoDB connected: ${conn.connection.host}`.cyan.underline);
+
+    // eslint-disable-next-line no-console
+    app.listen(port, () => console.log(`server started on port ${port}`));
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+};
+
+connectDB();
