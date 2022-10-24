@@ -73,7 +73,10 @@
 
 ## About The Project
 
-![PEFS-screenshot](https://user-images.githubusercontent.com/60191328/193888194-f4018be3-9e7a-4aa1-aeb3-3689cf70e512.png)
+![PEFS-Screenshot](https://user-images.githubusercontent.com/60191328/197449931-1fc473e5-c923-47ed-80fb-318faf751674.png)
+
+
+[PEFS](https://user-images.githubusercontent.com/60191328/197437568-3f85ad2d-f9a0-45f2-a7fe-3e655b4a6088.webm)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -196,19 +199,11 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 
 ## Contact
 
-FitzHawke - [@FitzHawke](https://twitter.com/FitzHawke)
+[@FitzHawke](https://twitter.com/FitzHawke)
 
 Project Link: [https://github.com/FitzHawke/PEFS](https://github.com/FitzHawke/PEFS)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
-
-- []()
-- []()
-- []()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
