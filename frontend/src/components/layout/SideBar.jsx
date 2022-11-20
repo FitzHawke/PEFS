@@ -105,6 +105,40 @@ function SideBar() {
         </li>
         <div className="divider" />
         <li className="w-full">
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "!bg-accent !text-accent-content"
+                : "active:bg-accent-focus"
+            }
+            to="/weight-dash"
+          >
+            Weight Dashboard
+          </NavLink>
+        </li>
+        <li className="w-full">
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "!bg-accent !text-accent-content"
+                : "active:bg-accent-focus"
+            }
+            to="/weight"
+          >
+            Weight Overview
+          </NavLink>
+        </li>
+        <li className="w-full">
+          <button
+            className="btn-ghost"
+            type="button"
+            onClick={() => dispatch(showModal({ type: "weight" }))}
+          >
+            Add New Weight
+          </button>
+        </li>
+        <div className="divider" />
+        <li className="w-full">
           <button className="btn-ghost" type="button" onClick={onLogout}>
             Logout
           </button>
