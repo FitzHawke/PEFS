@@ -5,10 +5,10 @@ import { useSelector, useDispatch } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
-import Footer from "./components/Footer";
-import Modal from "./components/Modal";
-import Header from "./components/Header";
-import SideBar from "./components/SideBar";
+import Footer from "./components/layout/Footer";
+import Modal from "./components/modal/Modal";
+import Header from "./components/layout/Header";
+import SideBar from "./components/layout/SideBar";
 import { setChecked } from "./features/ui/sideBarSlice";
 import Overview from "./pages/Overview";
 import MainDash from "./pages/MainDash";
@@ -44,6 +44,11 @@ function App() {
               <Route path="/run-dash" element={<Dashboard content="run" />} />
               <Route path="/rides" element={<Overview content="ride" />} />
               <Route path="/ride-dash" element={<Dashboard content="ride" />} />
+              <Route path="/weights" element={<Overview content="weight" />} />
+              <Route
+                path="/ride-weights"
+                element={<Dashboard content="weights" />}
+              />
             </Routes>
           </div>
           <SideBar />

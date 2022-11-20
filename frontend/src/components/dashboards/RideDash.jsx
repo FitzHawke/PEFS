@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { getRides, reset } from "../features/rides/rideSlice";
-import { showModal } from "../features/ui/modalSlice";
-import LineChart from "./LineChart";
-import Spinner from "./Spinner";
+import { getRides, reset } from "../../features/rides/rideSlice";
+import { showModal } from "../../features/ui/modalSlice";
+import LineChart from "../LineChart";
+import Spinner from "../Spinner";
 import StatSection from "./StatSection";
 
 function RideDash() {

@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { getRuns, reset } from "../features/runs/runSlice";
-import { showModal } from "../features/ui/modalSlice";
-import LineChart from "./LineChart";
+import { getRuns, reset } from "../../features/runs/runSlice";
+import { showModal } from "../../features/ui/modalSlice";
+import LineChart from "../LineChart";
 import StatSection from "./StatSection";
-import Spinner from "./Spinner";
+import Spinner from "../Spinner";
 
 function RunDash() {
   const navigate = useNavigate();

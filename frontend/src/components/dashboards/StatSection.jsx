@@ -1,5 +1,5 @@
 import React from "react";
-import getStats from "../utils/getStats";
+import getStats from "../../utils/getStats";
 
 function StatSection({ data, type, num, title }) {
   const timeStat = getStats(data, type === "run" ? "runTime" : "rideTime", num);

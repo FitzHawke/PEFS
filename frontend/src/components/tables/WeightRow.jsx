@@ -1,20 +1,20 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteRide } from "../features/rides/rideSlice";
-import { showModal } from "../features/ui/modalSlice";
+import { deleteWeight } from "../../features/weight/weightSlice";
+import { showModal } from "../../features/ui/modalSlice";
 
-function RideRow({ index, ride }) {
+function WeightRow({ index, weight }) {
   const dispatch = useDispatch();
 
   const onClickEdit = () => {
     const editData = {
-      type: "editRide",
-      date: ride.date,
-      id: ride._id,
-      startTime: ride.startTime,
-      endTime: ride.endTime,
-      distance: ride.distance,
-      pace: ride.pace,
+      type: "editWeight",
+      date: weight.date,
+      id: weight._id,
+      startTime: weight.startTime,
+      endTime: weight.endTime,
+      distance: weight.distance,
+      pace: weight.pace,
     };
     dispatch(showModal(editData));
   };
@@ -26,7 +26,7 @@ function RideRow({ index, ride }) {
     day: "numeric",
   };
 
-  const date = ride.date.split("-");
+  const date = weight.date.split("-");
 
   return (
     <tr className="hover">
@@ -38,11 +38,11 @@ function RideRow({ index, ride }) {
         )}
       </td>
       <td>
-        {ride.startTime} - {ride.endTime}
+        {weight.startTime} - {weight.endTime}
       </td>
-      <td>{ride.rideTime} minutes</td>
-      <td>{ride.distance} km</td>
-      <td>{ride.pace} km/h</td>
+      <td>{weight.weightTime} minutes</td>
+      <td>{weight.distance} km</td>
+      <td>{weight.pace} km/h</td>
       <td>
         <button
           type="button"
@@ -63,7 +63,7 @@ function RideRow({ index, ride }) {
           type="button"
           className="btn btn-square btn-ghost"
           // eslint-disable-next-line no-underscore-dangle
-          onClick={() => dispatch(deleteRide(ride._id))}
+          onClick={() => dispatch(deleteWeight(weight._id))}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,4 +78,4 @@ function RideRow({ index, ride }) {
   );
 }
 
-export default RideRow;
+export default WeightRow;

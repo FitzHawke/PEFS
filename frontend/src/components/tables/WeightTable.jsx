@@ -2,17 +2,17 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { getRuns, reset } from "../features/runs/runSlice";
-import RunRow from "./RunRow";
-import Spinner from "./Spinner";
+import { getWeights, reset } from "../../features/weight/weightSlice";
+import WeightRow from "./WeightRow";
+import Spinner from "../Spinner";
 
-function RunTable() {
+function WeightTable() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth);
-  const { runs, isLoading, isError, message } = useSelector(
-    (state) => state.runs
+  const { weights, isLoading, isError, message } = useSelector(
+    (state) => state.weights
   );
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function RunTable() {
     if (!user) {
       navigate("/login");
     } else {
-      dispatch(getRuns());
+      dispatch(getWeights());
     }
 
     return () => dispatch(reset());
@@ -42,8 +42,8 @@ function RunTable() {
         <tr>
           <th>#</th>
           <th>Date</th>
-          <th>Run Time</th>
-          <th>Run Length</th>
+          <th>Weight Time</th>
+          <th>Weight Length</th>
           <th>Distance</th>
           <th>Pace</th>
           <th>Edit</th>
@@ -51,14 +51,18 @@ function RunTable() {
         </tr>
       </thead>
       <tbody>
-        {runs.length > 0 ? (
-          runs.map((run, i) => (
+        {weights.length > 0 ? (
+          weights.map((weight, i) => (
             // eslint-disable-next-line no-underscore-dangle
-            <RunRow key={run._id} index={runs.length - 1 - i} run={run} />
+            <WeightRow
+              key={weight._id}
+              index={weights.length - 1 - i}
+              weight={weight}
+            />
           ))
         ) : (
           <tr>
-            <td>You have not set any workouts</td>
+            <td>You have no bike weights stored yet!</td>
           </tr>
         )}
       </tbody>
@@ -66,4 +70,4 @@ function RunTable() {
   );
 }
 
-export default RunTable;
+export default WeightTable;

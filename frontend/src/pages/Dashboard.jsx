@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import RideDash from "../components/RideDash";
-import RunDash from "../components/RunDash";
+import RideDash from "../components/dashboards/RideDash";
+import RunDash from "../components/dashboards/RunDash";
+import WeightDash from "../components/dashboards/WeightDash";
 import { reset } from "../features/auth/authSlice";
 
 function Dashboard({ content }) {
@@ -25,6 +26,10 @@ function Dashboard({ content }) {
 
   if (content === "ride") {
     return <RideDash />;
+  }
+
+  if (content === "weight") {
+    return <WeightDash />;
   }
 
   return (

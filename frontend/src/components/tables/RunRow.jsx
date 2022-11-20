@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteRun } from "../features/runs/runSlice";
-import { showModal } from "../features/ui/modalSlice";
+import { deleteRun } from "../../features/runs/runSlice";
+import { showModal } from "../../features/ui/modalSlice";
 
 function RunRow({ index, run }) {
   const dispatch = useDispatch();

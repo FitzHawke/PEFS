@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import RideTable from "../components/RideTable";
-import RunTable from "../components/RunTable";
+import RideTable from "../components/tables/RideTable";
+import RunTable from "../components/tables/RunTable";
 
 function Overview({ content }) {
   const navigate = useNavigate();
@@ -16,6 +16,9 @@ function Overview({ content }) {
       tableType = <RunTable />;
       break;
     case "ride":
+      tableType = <RideTable />;
+      break;
+    case "weight":
       tableType = <RideTable />;
       break;
     default:

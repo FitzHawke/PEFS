@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { createRun, editRun } from "../features/runs/runSlice";
-import { resetModal } from "../features/ui/modalSlice";
-import timeDifference from "../utils/timeDifference";
-import getNow from "../utils/getNow";
+import { createRide, editRide } from "../../features/rides/rideSlice";
+import { resetModal } from "../../features/ui/modalSlice";
+import timeDifference from "../../utils/timeDifference";
+import getNow from "../../utils/getNow";
 
-function RunningForm({ content }) {
+function RideningForm({ content }) {
   const { user } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
     date: "",
@@ -17,7 +17,7 @@ function RunningForm({ content }) {
 
   const dispatch = useDispatch();
 
-  if (content.type === "run" && formData.timeStart === "") {
+  if (content.type === "ride" && formData.timeStart === "") {
     const currentTime = getNow.currTime();
     const offSetTime = getNow.offSet();
     const currentDate = getNow.currDate();
@@ -28,7 +28,7 @@ function RunningForm({ content }) {
       timeStart: offSetTime,
       timeEnd: currentTime,
     }));
-  } else if (content.type === "editRun" && formData.timeStart === "") {
+  } else if (content.type === "editRide" && formData.timeStart === "") {
     setFormData((prevState) => ({
       ...prevState,
       date: content.date,
@@ -57,23 +57,23 @@ function RunningForm({ content }) {
         }
       );
     } else {
-      const runTime = timeDifference(timeStart, timeEnd);
-      const pace = +(distance / (runTime / 60)).toFixed(2);
+      const rideTime = timeDifference(timeStart, timeEnd);
+      const pace = +(distance / (rideTime / 60)).toFixed(2);
 
-      const runData = {
+      const rideData = {
         date,
         distance: +distance,
         timeStart,
         timeEnd,
-        runTime,
+        rideTime,
         pace,
       };
 
-      if (content.type === "editRun") {
-        runData.id = content.id;
-        dispatch(editRun(runData));
+      if (content.type === "editRide") {
+        rideData.id = content.id;
+        dispatch(editRide(rideData));
       } else {
-        dispatch(createRun(runData));
+        dispatch(createRide(rideData));
       }
       dispatch(resetModal());
     }
@@ -90,8 +90,8 @@ function RunningForm({ content }) {
     <section className="flex justify-center flex-col">
       <form className="form-control form-control-lg" onSubmit={onSubmit}>
         <div className="form-control my-2">
-          <label className="label flex-col items-start px-0" htmlFor="distance">
-            <p className="label-text px-4">Date of your run</p>
+          <label className="label flex-col items-start px-0" htmlFor="date">
+            <p className="label-text px-4">Date of your ride</p>
             <input
               type="date"
               className="input input-bordered justify-center w-full"
@@ -103,7 +103,7 @@ function RunningForm({ content }) {
             />
           </label>
           <label className="label flex-col items-start px-0" htmlFor="distance">
-            <p className="label-text px-4">Distance of your run</p>
+            <p className="label-text px-4">Distance of your ride</p>
             <input
               type="number"
               className="input input-bordered justify-center w-full"
@@ -118,7 +118,7 @@ function RunningForm({ content }) {
             className="label flex-col items-start px-0"
             htmlFor="timeStart"
           >
-            <p className="label-text px-4">Time you started your run</p>
+            <p className="label-text px-4">Time you started your ride</p>
             <input
               type="time"
               className="input input-bordered justify-center w-full"
@@ -130,7 +130,7 @@ function RunningForm({ content }) {
             />
           </label>
           <label className="label flex-col items-start px-0" htmlFor="timeEnd">
-            <p className="label-text px-4">Time you ended your run</p>
+            <p className="label-text px-4">Time you ended your ride</p>
             <input
               type="time"
               className="input input-bordered justify-center w-full"
@@ -160,4 +160,4 @@ function RunningForm({ content }) {
   );
 }
 
-export default RunningForm;
+export default RideningForm;

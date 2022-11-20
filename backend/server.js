@@ -23,6 +23,7 @@ app.use(passport.initialize());
 app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/rides", require("./routes/rideRoutes"));
 app.use("/api/runs", require("./routes/runRoutes"));
+app.use("/api/weights", require("./routes/weightRoutes"));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));

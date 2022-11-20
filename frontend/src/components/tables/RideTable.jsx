@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { getRides, reset } from "../features/rides/rideSlice";
+import { getRides, reset } from "../../features/rides/rideSlice";
 import RideRow from "./RideRow";
-import Spinner from "./Spinner";
+import Spinner from "../Spinner";
 
 function RideTable() {
   const navigate = useNavigate();

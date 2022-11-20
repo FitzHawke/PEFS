@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { logout, reset } from "../features/auth/authSlice";
-import { showModal } from "../features/ui/modalSlice";
+import { logout, reset } from "../../features/auth/authSlice";
+import { showModal } from "../../features/ui/modalSlice";
 
 function SideBar() {
   const dispatch = useDispatch();

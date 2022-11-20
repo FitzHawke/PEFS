@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import useLocalStorage from "../utils/useLocalStorage";
+import useLocalStorage from "../../utils/useLocalStorage";
 
 function DayNightSwitch() {
   const [theme, setTheme] = useLocalStorage("theme", "light");
