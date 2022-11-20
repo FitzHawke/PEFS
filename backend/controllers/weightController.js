@@ -24,11 +24,7 @@ const setWeight = asyncHandler(async (req, res) => {
   const weight = await Weight.create({
     user: req.user.id,
     date: req.body.date,
-    startTime: req.body.timeStart,
-    endTime: req.body.timeEnd,
-    weightTime: req.body.weightTime,
-    distance: req.body.distance,
-    pace: req.body.pace,
+    weight: req.body.weight,
   });
 
   res.status(200).json(weight);
@@ -61,11 +57,7 @@ const updateWeight = asyncHandler(async (req, res) => {
     req.params.id,
     {
       date: req.body.date,
-      startTime: req.body.timeStart,
-      endTime: req.body.timeEnd,
-      weightTime: req.body.weightTime,
-      distance: req.body.distance,
-      pace: req.body.pace,
+      weight: req.body.weight,
     },
     {
       new: true,

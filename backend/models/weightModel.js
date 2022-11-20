@@ -11,25 +11,9 @@ const weightSchema = mongoose.Schema(
       type: String,
       required: [true, "Please add a date value"],
     },
-    startTime: {
-      type: String,
-      required: [true, "Please add a start time value"],
-    },
-    endTime: {
-      type: String,
-      required: [true, "Please add a end time value"],
-    },
-    weightTime: {
+    weight: {
       type: Number,
-      required: [true, "Please add a number value"],
-    },
-    distance: {
-      type: Number,
-      required: [true, "Please add a number value"],
-    },
-    pace: {
-      type: Number,
-      required: [true, "Please add a number value"],
+      required: [true, "Please add a valid number"],
     },
   },
   {

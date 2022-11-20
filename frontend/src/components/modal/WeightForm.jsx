@@ -3,47 +3,38 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { createWeight, editWeight } from "../../features/weight/weightSlice";
 import { resetModal } from "../../features/ui/modalSlice";
-import timeDifference from "../../utils/timeDifference";
 import getNow from "../../utils/getNow";
 
 function WeightForm({ content }) {
   const { user } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
     date: "",
-    distance: 0,
-    timeStart: "",
-    timeEnd: "",
+    weight: 0,
   });
 
   const dispatch = useDispatch();
 
   if (content.type === "weight" && formData.timeStart === "") {
-    const currentTime = getNow.currTime();
-    const offSetTime = getNow.offSet();
     const currentDate = getNow.currDate();
 
     setFormData((prevState) => ({
       ...prevState,
       date: currentDate,
-      timeStart: offSetTime,
-      timeEnd: currentTime,
     }));
   } else if (content.type === "editWeight" && formData.timeStart === "") {
     setFormData((prevState) => ({
       ...prevState,
       date: content.date,
-      distance: content.distance,
-      timeStart: content.startTime,
-      timeEnd: content.endTime,
+      weight: content.weight,
     }));
   }
 
-  const { date, distance, timeStart, timeEnd } = formData;
+  const { date, weight } = formData;
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (!date || !distance || !timeStart || !timeEnd) {
+    if (!date || !weight) {
       toast.error("Please fill out all available fields", {
         position: toast.POSITION.TOP_RIGHT,
         className: "alert alert-error",
@@ -57,16 +48,9 @@ function WeightForm({ content }) {
         }
       );
     } else {
-      const weightTime = timeDifference(timeStart, timeEnd);
-      const pace = +(distance / (weightTime / 60)).toFixed(2);
-
       const weightData = {
         date,
-        distance: +distance,
-        timeStart,
-        timeEnd,
-        weightTime,
-        pace,
+        weight,
       };
 
       if (content.type === "editWeight") {
@@ -90,8 +74,8 @@ function WeightForm({ content }) {
     <section className="flex justify-center flex-col">
       <form className="form-control form-control-lg" onSubmit={onSubmit}>
         <div className="form-control my-2">
-          <label className="label flex-col items-start px-0" htmlFor="distance">
-            <p className="label-text px-4">Date of your weight</p>
+          <label className="label flex-col items-start px-0" htmlFor="date">
+            <p className="label-text px-4">Date of your weight in</p>
             <input
               type="date"
               className="input input-bordered justify-center w-full"
@@ -103,41 +87,14 @@ function WeightForm({ content }) {
             />
           </label>
           <label className="label flex-col items-start px-0" htmlFor="distance">
-            <p className="label-text px-4">Distance of your weight</p>
+            <p className="label-text px-4">Measured weight in lbs</p>
             <input
               type="number"
               className="input input-bordered justify-center w-full"
-              id="distance"
-              name="distance"
-              value={distance}
+              id="weight"
+              name="weight"
+              value={weight}
               placeholder="Enter the distance you ran"
-              onChange={onChange}
-            />
-          </label>
-          <label
-            className="label flex-col items-start px-0"
-            htmlFor="timeStart"
-          >
-            <p className="label-text px-4">Time you started your weight</p>
-            <input
-              type="time"
-              className="input input-bordered justify-center w-full"
-              id="timeStart"
-              name="timeStart"
-              value={timeStart}
-              placeholder="00:00"
-              onChange={onChange}
-            />
-          </label>
-          <label className="label flex-col items-start px-0" htmlFor="timeEnd">
-            <p className="label-text px-4">Time you ended your weight</p>
-            <input
-              type="time"
-              className="input input-bordered justify-center w-full"
-              id="timeEnd"
-              name="timeEnd"
-              value={timeEnd}
-              placeholder="00:00"
               onChange={onChange}
             />
           </label>
