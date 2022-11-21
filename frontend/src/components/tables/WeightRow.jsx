@@ -11,10 +11,7 @@ function WeightRow({ index, weight }) {
       type: "editWeight",
       date: weight.date,
       id: weight._id,
-      startTime: weight.startTime,
-      endTime: weight.endTime,
-      distance: weight.distance,
-      pace: weight.pace,
+      weight: weight.weight,
     };
     dispatch(showModal(editData));
   };
@@ -37,12 +34,7 @@ function WeightRow({ index, weight }) {
           options
         )}
       </td>
-      <td>
-        {weight.startTime} - {weight.endTime}
-      </td>
-      <td>{weight.weightTime} minutes</td>
-      <td>{weight.distance} km</td>
-      <td>{weight.pace} km/h</td>
+      <td>{weight.weight} lbs</td>
       <td>
         <button
           type="button"

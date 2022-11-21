@@ -10,7 +10,6 @@ function DashSection({ data, type, title }) {
   return (
     <div className="card w-full lg:w-1/2 bg-base-100 shadow-xl">
       <h3 className="text-3xl text-center py-5">{title}</h3>
-      {console.log(data)}
       {data.length > 1 ? (
         <>
           <figure className="px-10 py-5">

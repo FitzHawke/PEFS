@@ -35,9 +35,9 @@ function Dashboard({ content }) {
   return (
     <div className="mx-auto px-2 max-w-5xl flex flex-col justify-center items-center h-full">
       <h2 className="max-w-3xl ">
-        This dashboard is still being implemented! Go add some rides and runs
-        from the menu on the left then view them in the overview and respective
-        dashboards!
+        This dashboard doesn&apos;t have anything to display! Go add some data
+        from the menu on the left to see this area populated with beautiful
+        graphs and data aggregation!
       </h2>
     </div>
   );

@@ -82,7 +82,7 @@ function MainDash() {
       <div className="flex flex-col lg:flex-row gap-4 justify-around w-full h-full">
         <DashSection data={runs} type="Run" title="Runs" />
         <DashSection data={rides} type="Ride" title="Bike Rides" />
-        <DashSection data={weights} type="Weights" title="Weights" />
+        <DashSection data={weights} type="Weight" title="Weights" />
       </div>
     </div>
   );

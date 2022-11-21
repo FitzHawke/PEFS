@@ -14,14 +14,14 @@ function WeightForm({ content }) {
 
   const dispatch = useDispatch();
 
-  if (content.type === "weight" && formData.timeStart === "") {
+  if (content.type === "weight" && formData.date === "") {
     const currentDate = getNow.currDate();
 
     setFormData((prevState) => ({
       ...prevState,
       date: currentDate,
     }));
-  } else if (content.type === "editWeight" && formData.timeStart === "") {
+  } else if (content.type === "editWeight" && formData.date === "") {
     setFormData((prevState) => ({
       ...prevState,
       date: content.date,
@@ -82,7 +82,7 @@ function WeightForm({ content }) {
               id="date"
               name="date"
               value={date}
-              placeholder="Enter the date you ran"
+              placeholder="Enter the date you weighed in"
               onChange={onChange}
             />
           </label>
@@ -94,7 +94,7 @@ function WeightForm({ content }) {
               id="weight"
               name="weight"
               value={weight}
-              placeholder="Enter the distance you ran"
+              placeholder="Enter your weight on the specified date"
               onChange={onChange}
             />
           </label>

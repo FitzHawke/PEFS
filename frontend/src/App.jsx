@@ -46,7 +46,7 @@ function App() {
               <Route path="/ride-dash" element={<Dashboard content="ride" />} />
               <Route path="/weight" element={<Overview content="weight" />} />
               <Route
-                path="/ride-weights"
+                path="/weight-dash"
                 element={<Dashboard content="weights" />}
               />
             </Routes>

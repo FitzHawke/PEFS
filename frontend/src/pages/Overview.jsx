@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import RideTable from "../components/tables/RideTable";
 import RunTable from "../components/tables/RunTable";
+import WeightTable from "../components/tables/WeightTable";
 
 function Overview({ content }) {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ function Overview({ content }) {
       tableType = <RideTable />;
       break;
     case "weight":
-      tableType = <RideTable />;
+      tableType = <WeightTable />;
       break;
     default:
       tableType = null;

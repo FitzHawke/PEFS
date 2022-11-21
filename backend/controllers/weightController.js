@@ -16,11 +16,6 @@ const getWeights = asyncHandler(async (req, res) => {
 //  @route  POST /api/weights
 //  @access Private
 const setWeight = asyncHandler(async (req, res) => {
-  if (!req.body.distance) {
-    res.status(400);
-    throw new Error("Please add a distance field");
-  }
-
   const weight = await Weight.create({
     user: req.user.id,
     date: req.body.date,

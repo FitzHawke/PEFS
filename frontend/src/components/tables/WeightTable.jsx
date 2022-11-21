@@ -42,10 +42,7 @@ function WeightTable() {
         <tr>
           <th>#</th>
           <th>Date</th>
-          <th>Weight Time</th>
-          <th>Weight Length</th>
-          <th>Distance</th>
-          <th>Pace</th>
+          <th>Weight</th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
@@ -62,7 +59,7 @@ function WeightTable() {
           ))
         ) : (
           <tr>
-            <td>You have no bike weights stored yet!</td>
+            <td>You have no weights stored yet!</td>
           </tr>
         )}
       </tbody>
