@@ -25,7 +25,7 @@ function App() {
     <Router>
       <div className="flex flex-col justify-between h-screen">
         <Header />
-        <div className="drawer drawer-mobile h-full">
+        <div className="h-full drawer lg:drawer-open">
           <input
             type="checkbox"
             id="my-drawer-2"
@@ -34,7 +34,7 @@ function App() {
             onChange={onChange}
           />
 
-          <div className="drawer-content h-full">
+          <div className="h-full drawer-content">
             <Routes>
               <Route path="/" element={<Landing />} />
               <Route path="/login" element={<Landing />} />
@@ -47,7 +47,7 @@ function App() {
               <Route path="/weight" element={<Overview content="weight" />} />
               <Route
                 path="/weight-dash"
-                element={<Dashboard content="weights" />}
+                element={<Dashboard content="weight" />}
               />
             </Routes>
           </div>

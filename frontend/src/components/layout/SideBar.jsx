@@ -20,9 +20,9 @@ function SideBar() {
   }
 
   return (
-    <div className="drawer-side">
+    <div className="relative drawer-side">
       <div className="drawer-overlay" />
-      <ul className="menu p-4 overflow-y-auto flex-nowrap w-80 bg-base-100 text-base-content">
+      <ul className="overflow-y-auto flex-nowrap p-4 w-80 h-full menu text-base-content">
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>

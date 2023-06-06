@@ -28,9 +28,9 @@ function Header() {
         <div className="logo">
           <Link
             to="/"
-            className="btn btn-ghost hidden lg:block normal-case text-xl"
+            className="hidden text-xl normal-case lg:block btn btn-ghost"
           >
-            <h1 className="font-logo text-3xl font-bold align-bottom">PEFS</h1>
+            <h1 className="text-3xl font-bold align-bottom font-logo">PEFS</h1>
           </Link>
         </div>
         <button
@@ -42,17 +42,23 @@ function Header() {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 32 32"
-            className="fill-current w-6 h-6"
+            className="w-6 h-6 fill-current"
           >
             <path d="M 4 7 L 4 9 L 28 9 L 28 7 Z M 4 15 L 4 17 L 28 17 L 28 15 Z M 4 23 L 4 25 L 28 25 L 28 23 Z" />
           </svg>
         </button>
       </div>
       <div className="navbar-end">
-        <ul className="menu menu-horizontal p-0">
+        <ul className="p-0 menu menu-horizontal">
           <li>
             <DayNightSwitch />
-            <button className="btn btn-ghost" type="button" onClick={onLogout}>
+          </li>
+          <li>
+            <button
+              className="text-center btn btn-ghost"
+              type="button"
+              onClick={onLogout}
+            >
               <FaSignOutAlt /> Logout
             </button>
           </li>
