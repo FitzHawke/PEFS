@@ -16,39 +16,34 @@ passport.use(
       passwordField: "password",
     },
     (email, password, done) => {
-      // eslint-disable-next-line consistent-return
-      User.findOne({ email }, (err, user) => {
-        if (err) {
-          return done(err);
-        }
-
-        if (!user) {
-          return done(null, false, { message: `Email ${email} not found.` });
-        }
-
-        bcrypt.compare(password, user.password, (_err, result) => {
-          if (!result) {
-            return done(null, false, { message: "Incorrect password." });
+      User.findOne({ email })
+        .then((user) => {
+          if (!user) {
+            return done(null, false, { message: `Email ${email} not found.` });
           }
-          return done(null, user);
-        });
-      });
+
+          return bcrypt.compare(password, user.password, (_err, result) => {
+            if (!result) {
+              return done(null, false, { message: "Incorrect password." });
+            }
+            return done(null, user);
+          });
+        })
+        .catch((err) => done(err));
     }
   )
 );
 
 passport.use(
   new JwtStrategy(options, (jwtPayload, done) => {
-    User.findById(jwtPayload.id, (err, user) => {
-      if (err) {
-        return done(err, false);
-      }
+    User.findById(jwtPayload.id)
+      .then((user) => {
+        if (!user) {
+          return done(null, false);
+        }
 
-      if (!user) {
-        return done(null, false);
-      }
-
-      return done(null, user);
-    });
+        return done(null, user);
+      })
+      .catch((err) => done(err, false));
   })
 );
