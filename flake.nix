@@ -32,6 +32,7 @@
         devShells.default = pkgs.mkShell {
           name = "PEFS";
           packages = with pkgs; [
+            nodePackages.pnpm
             nodePackages.typescript
             nodePackages.typescript-language-server
             nodejs
