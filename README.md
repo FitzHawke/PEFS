@@ -35,7 +35,7 @@
     <a href="https://github.com/FitzHawke/PEFS"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://pefs.cyclic.app/">View Demo</a>
+    <a href="https://pefson.cyclic.app/">View Demo</a>
     ·
     <a href="https://github.com/FitzHawke/PEFS/issues">Report Bug</a>
     ·
