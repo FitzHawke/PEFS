@@ -104,7 +104,7 @@ function SideBar() {
           </button>
         </li>
         <div className="divider" />
-        <li className="w-full">
+        {/* <li className="w-full">
           <NavLink
             className={({ isActive }) =>
               isActive
@@ -137,7 +137,7 @@ function SideBar() {
             Add New Weight
           </button>
         </li>
-        <div className="divider" />
+        <div className="divider" /> */}
         <li className="w-full">
           <button className="btn-ghost" type="button" onClick={onLogout}>
             Logout
