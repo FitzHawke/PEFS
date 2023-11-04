@@ -6,7 +6,7 @@ import { resetModal } from "../../features/ui/modalSlice";
 import timeDifference from "../../utils/timeDifference";
 import getNow from "../../utils/getNow";
 
-function RideningForm({ content }) {
+function RidingForm({ content }) {
   const { user } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
     date: "",
@@ -160,4 +160,4 @@ function RideningForm({ content }) {
   );
 }
 
-export default RideningForm;
+export default RidingForm;
