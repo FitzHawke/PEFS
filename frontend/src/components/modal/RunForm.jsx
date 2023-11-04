@@ -40,6 +40,11 @@ function RunningForm({ content }) {
 
   const { date, distance, timeStart, timeEnd } = formData;
 
+  const reset = () => {
+    dispatch(resetModal());
+    document.getElementById("modal_1").close();
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -75,8 +80,8 @@ function RunningForm({ content }) {
       } else {
         dispatch(createRun(runData));
       }
-      dispatch(resetModal());
     }
+    reset();
   };
 
   const onChange = (e) => {
@@ -88,7 +93,11 @@ function RunningForm({ content }) {
 
   return (
     <section className="flex justify-center flex-col">
-      <form className="form-control form-control-lg" onSubmit={onSubmit}>
+      <form
+        method="dialog"
+        className="form-control form-control-lg"
+        onSubmit={onSubmit}
+      >
         <div className="form-control my-2">
           <label className="label flex-col items-start px-0" htmlFor="date">
             <p className="label-text px-4">Date of your run</p>
@@ -148,14 +157,14 @@ function RunningForm({ content }) {
             Submit
           </button>
         </div>
+        <button
+          className="btn btn-error btn-wide mx-auto my-4"
+          type="button"
+          onClick={() => reset()}
+        >
+          Cancel
+        </button>
       </form>
-      <button
-        className="btn btn-error btn-wide mx-auto my-4"
-        type="button"
-        onClick={() => dispatch(resetModal())}
-      >
-        Cancel
-      </button>
     </section>
   );
 }
