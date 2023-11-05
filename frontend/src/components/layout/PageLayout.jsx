@@ -14,23 +14,21 @@ function PageLayout({ children }) {
   }
 
   return (
-    <div className="flex flex-col justify-between h-screen">
-      <Header />
-      <div className="h-full drawer lg:drawer-open">
-        <input
-          type="checkbox"
-          id="my-drawer-2"
-          className="drawer-toggle"
-          checked={checked}
-          onChange={onChange}
-        />
+    <div className="h-screen drawer lg:drawer-open">
+      <input
+        type="checkbox"
+        id="my-drawer-2"
+        className="drawer-toggle"
+        checked={checked}
+        onChange={onChange}
+      />
 
-        <div className="h-full drawer-content">
-          {children}
-        </div>
-        <SideBar />
+      <div className="drawer-content flex flex-col items-center justify-center">
+        <Header />
+        {children}
+        <Footer />
       </div>
-      <Footer />
+      <SideBar />
     </div>
   );
 }
