@@ -1,4 +1,5 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -24,10 +25,10 @@ function SideBar() {
 
   return (
     <div className="drawer-side">
-      <label
-        htmlFor="my-drawer-2"
+      <div
         aria-label="close sidebar"
         className="drawer-overlay"
+        onClick={() => dispatch(setChecked(false))}
       />
       <ul className="overflow-y-auto flex-nowrap p-4 w-80 h-full menu text-base-content">
         <li className="w-full">

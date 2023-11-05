@@ -14,7 +14,7 @@ function PageLayout({ children }) {
   }
 
   return (
-    <div className="h-screen drawer lg:drawer-open">
+    <div className="drawer lg:drawer-open">
       <input
         type="checkbox"
         id="my-drawer-2"
@@ -23,9 +23,11 @@ function PageLayout({ children }) {
         onChange={onChange}
       />
 
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="drawer-content flex flex-col items-center justify-center h-screen">
         <Header />
-        {children}
+        <div className="overflow-y-auto">
+          {children}
+        </div>
         <Footer />
       </div>
       <SideBar />
