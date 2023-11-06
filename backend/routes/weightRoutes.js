@@ -3,10 +3,10 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  getWeights,
-  setWeight,
-  updateWeight,
-  deleteWeight,
+	getWeights,
+	setWeight,
+	updateWeight,
+	deleteWeight,
 } = require("../controllers/weightController");
 
 const { protect } = require("../middleware/authMiddleware");

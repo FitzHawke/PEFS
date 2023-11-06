@@ -7,40 +7,40 @@ import WeightDash from "../components/dashboards/WeightDash";
 import { reset } from "../features/auth/authSlice";
 
 function Dashboard({ content }) {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
-  const { user } = useSelector((state) => state.auth);
+	const { user } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    if (!user) {
-      navigate("/login");
-    }
+	useEffect(() => {
+		if (!user) {
+			navigate("/login");
+		}
 
-    return () => dispatch(reset());
-  }, [user]);
+		return () => dispatch(reset());
+	}, [user]);
 
-  if (content === "run") {
-    return <RunDash />;
-  }
+	if (content === "run") {
+		return <RunDash />;
+	}
 
-  if (content === "ride") {
-    return <RideDash />;
-  }
+	if (content === "ride") {
+		return <RideDash />;
+	}
 
-  if (content === "weight") {
-    return <WeightDash />;
-  }
+	if (content === "weight") {
+		return <WeightDash />;
+	}
 
-  return (
-    <div className="mx-auto px-2 max-w-5xl flex flex-col justify-center items-center">
-      <h2 className="max-w-3xl ">
-        This dashboard doesn&apos;t have anything to display! Go add some data
-        from the menu on the left to see this area populated with beautiful
-        graphs and data aggregation!
-      </h2>
-    </div>
-  );
+	return (
+		<div className="mx-auto flex max-w-5xl flex-col items-center justify-center px-2">
+			<h2 className="max-w-3xl ">
+				This dashboard doesn&apos;t have anything to display! Go add some data
+				from the menu on the left to see this area populated with beautiful
+				graphs and data aggregation!
+			</h2>
+		</div>
+	);
 }
 
 export default Dashboard;

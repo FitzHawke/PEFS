@@ -1,0 +1,6 @@
+.astro
+.direnv
+.vscode
+dist
+public
+node_modules

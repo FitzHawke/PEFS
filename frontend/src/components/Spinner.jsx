@@ -1,13 +1,13 @@
 import React from "react";
 
 function Spinner() {
-  return (
-    <div className="flex items-center justify-center space-x-2 animate-pulse align-middle h-screen">
-      <div className="w-8 h-8 bg-accent rounded-full" />
-      <div className="w-8 h-8 bg-accent rounded-full" />
-      <div className="w-8 h-8 bg-accent rounded-full" />
-    </div>
-  );
+	return (
+		<div className="flex h-screen animate-pulse items-center justify-center space-x-2 align-middle">
+			<div className="bg-accent h-8 w-8 rounded-full" />
+			<div className="bg-accent h-8 w-8 rounded-full" />
+			<div className="bg-accent h-8 w-8 rounded-full" />
+		</div>
+	);
 }
 
 export default Spinner;

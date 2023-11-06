@@ -1,51 +1,51 @@
 import React from "react";
 
 function Footer() {
-  return (
-    <footer className="footer items-center p-4 bg-neutral text-neutral-content">
-      <div className="items-center grid-flow-col">
-        <h1 className="font-logo text-3xl mr-2 font-bold">PEFS</h1>
-        <p>Copyright © 2022 by FitzHawke - All rights reserved</p>
-      </div>
-      <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-        <a href="https://github.com/FitzHawke/PEFS">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 64 64"
-            className="fill-current"
-          >
-            <path
-              fill="currentColor"
-              d="M32 0 C14 0 0 14 0 32 0 53 19 62 22 62 24 62 24 61 24 60 L24 55 C17 57 14 53 13 50 13 50 13 49 11 47 10 46 6 44 10 44 13 44 15 48 15 48 18 52 22 51 24 50 24 48 26 46 26 46 18 45 12 42 12 31 12 27 13 24 15 22 15 22 13 18 15 13 15 13 20 13 24 17 27 15 37 15 40 17 44 13 49 13 49 13 51 20 49 22 49 22 51 24 52 27 52 31 52 42 45 45 38 46 39 47 40 49 40 52 L40 60 C40 61 40 62 42 62 45 62 64 53 64 32 64 14 50 0 32 0 Z"
-            />
-          </svg>
-        </a>
+	return (
+		<footer className="footer bg-neutral text-neutral-content items-center p-4">
+			<div className="grid-flow-col items-center">
+				<h1 className="font-logo mr-2 text-3xl font-bold">PEFS</h1>
+				<p>Copyright © 2022 by FitzHawke - All rights reserved</p>
+			</div>
+			<div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+				<a href="https://github.com/FitzHawke/PEFS">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="32"
+						height="32"
+						viewBox="0 0 64 64"
+						className="fill-current"
+					>
+						<path
+							fill="currentColor"
+							d="M32 0 C14 0 0 14 0 32 0 53 19 62 22 62 24 62 24 61 24 60 L24 55 C17 57 14 53 13 50 13 50 13 49 11 47 10 46 6 44 10 44 13 44 15 48 15 48 18 52 22 51 24 50 24 48 26 46 26 46 18 45 12 42 12 31 12 27 13 24 15 22 15 22 13 18 15 13 15 13 20 13 24 17 27 15 37 15 40 17 44 13 49 13 49 13 51 20 49 22 49 22 51 24 52 27 52 31 52 42 45 45 38 46 39 47 40 49 40 52 L40 60 C40 61 40 62 42 62 45 62 64 53 64 32 64 14 50 0 32 0 Z"
+						/>
+					</svg>
+				</a>
 
-        <a href="https://twitter.com/FitzHawke">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 64 64"
-            className="fill-current"
-          >
-            <path d="M60 16 L54 17 L58 12 L51 14 C42 4 28 15 32 24 C16 24 8 12 8 12 C8 12 2 21 12 28 L6 26 C6 32 10 36 17 38 L10 38 C14 46 21 46 21 46 C21 46 15 51 4 51 C37 67 57 37 54 21 Z" />
-          </svg>
-        </a>
+				<a href="https://twitter.com/FitzHawke">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="32"
+						height="32"
+						viewBox="0 0 64 64"
+						className="fill-current"
+					>
+						<path d="M60 16 L54 17 L58 12 L51 14 C42 4 28 15 32 24 C16 24 8 12 8 12 C8 12 2 21 12 28 L6 26 C6 32 10 36 17 38 L10 38 C14 46 21 46 21 46 C21 46 15 51 4 51 C37 67 57 37 54 21 Z" />
+					</svg>
+				</a>
 
-        <a href="https://fitzhawke.com">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 92 92"
-            className="fill-current"
-          >
-            <path
-              id="XMLID_1666_"
-              d="M46,0C20.6,0,0,20.6,0,46s20.6,46,46,46s46-20.6,46-46S71.4,0,46,0z M49.7,83.8c-0.2,0-0.4,0-0.7,0.1V62.2
+				<a href="https://fitzhawke.com">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="32"
+						height="32"
+						viewBox="0 0 92 92"
+						className="fill-current"
+					>
+						<path
+							id="XMLID_1666_"
+							d="M46,0C20.6,0,0,20.6,0,46s20.6,46,46,46s46-20.6,46-46S71.4,0,46,0z M49.7,83.8c-0.2,0-0.4,0-0.7,0.1V62.2
 	c5.2-0.1,9.9-0.2,14.2-0.5C59.4,73.4,52.3,81.2,49.7,83.8z M42.3,83.8c-2.7-2.7-9.7-10.5-13.5-22.1c4.2,0.3,9,0.5,14.2,0.5v21.7
 	C42.8,83.9,42.6,83.8,42.3,83.8z M8,46c0-2.5,0.3-5,0.7-7.4c2.2-0.4,6.4-1,12.3-1.6c-0.5,2.9-0.8,5.9-0.8,9.1c0,3.2,0.3,6.2,0.7,9
 	c-5.8-0.6-10.1-1.2-12.3-1.6C8.3,51,8,48.5,8,46z M26.3,46c0-3.4,0.4-6.6,1-9.6c4.6-0.3,9.8-0.6,15.7-0.6v20.4
@@ -57,12 +57,12 @@ function Footer() {
 	 M32.6,10.4c-3.6,4.8-7.7,11.7-10.1,20.3c-5,0.4-9,1-11.9,1.4C14.5,22.2,22.6,14.2,32.6,10.4z M10.6,59.8c2.8,0.4,6.8,0.9,11.8,1.4
 	c2.4,8.6,6.4,15.5,10,20.3C22.4,77.6,14.5,69.7,10.6,59.8z M59.6,81.5c3.6-4.8,7.6-11.6,10-20.2c5-0.4,9-1,11.8-1.4
 	C77.5,69.7,69.6,77.6,59.6,81.5z"
-            />
-          </svg>
-        </a>
-      </div>
-    </footer>
-  );
+						/>
+					</svg>
+				</a>
+			</div>
+		</footer>
+	);
 }
 
 export default Footer;

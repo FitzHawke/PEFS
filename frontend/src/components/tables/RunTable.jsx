@@ -7,63 +7,63 @@ import RunRow from "./RunRow";
 import Spinner from "../Spinner";
 
 function RunTable() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
-  const { user } = useSelector((state) => state.auth);
-  const { runs, isLoading, isError, message } = useSelector(
-    (state) => state.runs
-  );
+	const { user } = useSelector((state) => state.auth);
+	const { runs, isLoading, isError, message } = useSelector(
+		(state) => state.runs,
+	);
 
-  useEffect(() => {
-    if (isError) {
-      toast.error(message, {
-        position: toast.POSITION.TOP_RIGHT,
-        className: "alert alert-error",
-      });
-    }
+	useEffect(() => {
+		if (isError) {
+			toast.error(message, {
+				position: toast.POSITION.TOP_RIGHT,
+				className: "alert alert-error",
+			});
+		}
 
-    if (!user) {
-      navigate("/login");
-    } else {
-      dispatch(getRuns());
-    }
+		if (!user) {
+			navigate("/login");
+		} else {
+			dispatch(getRuns());
+		}
 
-    return () => dispatch(reset());
-  }, [user, isError]);
+		return () => dispatch(reset());
+	}, [user, isError]);
 
-  if (isLoading) {
-    return <Spinner />;
-  }
+	if (isLoading) {
+		return <Spinner />;
+	}
 
-  return (
-    <table className="table w-full">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Date</th>
-          <th>Run Time</th>
-          <th>Run Length</th>
-          <th>Distance</th>
-          <th>Pace</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        {runs.length > 0 ? (
-          runs.map((run, i) => (
-            // eslint-disable-next-line no-underscore-dangle
-            <RunRow key={run._id} index={runs.length - 1 - i} run={run} />
-          ))
-        ) : (
-          <tr>
-            <td>You have not set any workouts</td>
-          </tr>
-        )}
-      </tbody>
-    </table>
-  );
+	return (
+		<table className="table w-full">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Date</th>
+					<th>Run Time</th>
+					<th>Run Length</th>
+					<th>Distance</th>
+					<th>Pace</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				{runs.length > 0 ? (
+					runs.map((run, i) => (
+						// eslint-disable-next-line no-underscore-dangle
+						<RunRow key={run._id} index={runs.length - 1 - i} run={run} />
+					))
+				) : (
+					<tr>
+						<td>You have not set any workouts</td>
+					</tr>
+				)}
+			</tbody>
+		</table>
+	);
 }
 
 export default RunTable;

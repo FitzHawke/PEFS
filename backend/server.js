@@ -26,29 +26,29 @@ app.use("/api/runs", require("./routes/runRoutes"));
 app.use("/api/weights", require("./routes/weightRoutes"));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+	app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.get("*", (req, res) =>
-    res.sendFile(
-      path.resolve(__dirname, "../", "frontend", "dist", "index.html")
-    )
-  );
+	app.get("*", (req, res) =>
+		res.sendFile(
+			path.resolve(__dirname, "../", "frontend", "dist", "index.html"),
+		),
+	);
 } else {
-  app.get("/", (req, res) => res.send("Please set to production"));
+	app.get("/", (req, res) => res.send("Please set to production"));
 }
 
 const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.MONGO_URI);
+	try {
+		const conn = await mongoose.connect(process.env.MONGO_URI);
 
-    console.log(`MongoDB connected: ${conn.connection.host}`.cyan.underline);
+		console.log(`MongoDB connected: ${conn.connection.host}`.cyan.underline);
 
-    // eslint-disable-next-line no-console
-    app.listen(port, () => console.log(`server started on port ${port}`));
-  } catch (error) {
-    console.log(error);
-    process.exit(1);
-  }
+		// eslint-disable-next-line no-console
+		app.listen(port, () => console.log(`server started on port ${port}`));
+	} catch (error) {
+		console.log(error);
+		process.exit(1);
+	}
 };
 
 connectDB();

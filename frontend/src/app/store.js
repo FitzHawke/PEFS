@@ -6,14 +6,13 @@ import runReducer from "../features/runs/runSlice";
 import rideReducer from "../features/rides/rideSlice";
 import weightReducer from "../features/weight/weightSlice";
 
-// eslint-disable-next-line import/prefer-default-export
 export const store = configureStore({
-  reducer: {
-    auth: authReducer,
-    modal: modalReducer,
-    runs: runReducer,
-    rides: rideReducer,
-    weights: weightReducer,
-    sideBar: sideBarReducer,
-  },
+	reducer: {
+		auth: authReducer,
+		modal: modalReducer,
+		runs: runReducer,
+		rides: rideReducer,
+		weights: weightReducer,
+		sideBar: sideBarReducer,
+	},
 });

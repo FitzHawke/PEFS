@@ -10,40 +10,40 @@ options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 options.secretOrKey = process.env.JWT_SECRET;
 
 passport.use(
-  new LocalStrategy(
-    {
-      usernameField: "email",
-      passwordField: "password",
-    },
-    (email, password, done) => {
-      User.findOne({ email })
-        .then((user) => {
-          if (!user) {
-            return done(null, false, { message: `Email ${email} not found.` });
-          }
+	new LocalStrategy(
+		{
+			usernameField: "email",
+			passwordField: "password",
+		},
+		(email, password, done) => {
+			User.findOne({ email })
+				.then((user) => {
+					if (!user) {
+						return done(null, false, { message: `Email ${email} not found.` });
+					}
 
-          return bcrypt.compare(password, user.password, (_err, result) => {
-            if (!result) {
-              return done(null, false, { message: "Incorrect password." });
-            }
-            return done(null, user);
-          });
-        })
-        .catch((err) => done(err));
-    }
-  )
+					return bcrypt.compare(password, user.password, (_err, result) => {
+						if (!result) {
+							return done(null, false, { message: "Incorrect password." });
+						}
+						return done(null, user);
+					});
+				})
+				.catch((err) => done(err));
+		},
+	),
 );
 
 passport.use(
-  new JwtStrategy(options, (jwtPayload, done) => {
-    User.findById(jwtPayload.id)
-      .then((user) => {
-        if (!user) {
-          return done(null, false);
-        }
+	new JwtStrategy(options, (jwtPayload, done) => {
+		User.findById(jwtPayload.id)
+			.then((user) => {
+				if (!user) {
+					return done(null, false);
+				}
 
-        return done(null, user);
-      })
-      .catch((err) => done(err, false));
-  })
+				return done(null, user);
+			})
+			.catch((err) => done(err, false));
+	}),
 );

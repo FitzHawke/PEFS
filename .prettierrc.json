@@ -1,0 +1,17 @@
+{
+  "useTabs": true,
+  "semi": true,
+  "printWidth": 80,
+  "singleQuote": false,
+  "bracketSpacing": true,
+  "tabWidth": 2,
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": ["*.json", "*.md", "*.mdx", "*.toml", "*.yml"],
+      "options": {
+        "useTabs": false
+      }
+    }
+  ]
+}

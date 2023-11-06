@@ -3,10 +3,10 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  getRuns,
-  setRun,
-  updateRun,
-  deleteRun,
+	getRuns,
+	setRun,
+	updateRun,
+	deleteRun,
 } = require("../controllers/runController");
 
 const { protect } = require("../middleware/authMiddleware");
