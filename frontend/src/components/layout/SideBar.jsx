@@ -30,7 +30,7 @@ function SideBar() {
         className="drawer-overlay"
         onClick={() => dispatch(setChecked(false))}
       />
-      <ul className="overflow-y-auto flex-nowrap p-4 w-80 h-full menu text-base-content">
+      <ul className="overflow-y-auto flex-nowrap p-4 w-80 bg-base-200 h-full menu text-base-content">
         <li className="w-full">
           <NavLink
             className={({ isActive }) =>
