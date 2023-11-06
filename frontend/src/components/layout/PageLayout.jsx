@@ -23,12 +23,12 @@ function PageLayout({ children }) {
         onChange={onChange}
       />
 
-      <div className="drawer-content flex flex-col items-center justify-center h-screen">
+      <div className="drawer-content flex flex-col items-center justify-between h-screen">
         <Header />
-        <div className="overflow-y-auto">
+        <div className="overflow-y-scroll w-full">
           {children}
         </div>
-        <Footer />
+          <Footer />
       </div>
       <SideBar />
     </div>

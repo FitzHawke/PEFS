@@ -66,7 +66,7 @@ function RunDash() {
   }
 
   return (
-    <div className="mx-auto px-2 max-w-5xl flex flex-col gap-4 items-center h-full">
+    <div className="mx-auto px-2 max-w-5xl flex flex-col gap-4 items-center">
       {runs.length < 2 ? (
         <div className="flex flex-col h-48 gap-4 justify-center items-center">
           <h3>Add more Runs to view a nice graph here!</h3>
