@@ -33,7 +33,7 @@ function Dashboard({ content }) {
   }
 
   return (
-    <div className="mx-auto px-2 max-w-5xl flex flex-col justify-center items-center h-full">
+    <div className="mx-auto px-2 max-w-5xl flex flex-col justify-center items-center">
       <h2 className="max-w-3xl ">
         This dashboard doesn&apos;t have anything to display! Go add some data
         from the menu on the left to see this area populated with beautiful

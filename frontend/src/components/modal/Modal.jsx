@@ -7,7 +7,6 @@ import WeightForm from "./WeightForm";
 function Modal() {
   const { displayModal, modalContent } = useSelector((state) => state.modal);
 
-  let extraClass = "";
   let modalType = null;
 
   switch (modalContent.type) {
@@ -34,15 +33,13 @@ function Modal() {
   }
 
   if (displayModal) {
-    extraClass = "modal-open";
-  } else {
-    extraClass = "";
+    document.getElementById('modal_1').showModal()
   }
 
   return (
-    <div className={`modal modal-bottom sm:modal-middle ${extraClass}`}>
+    <dialog id="modal_1" className="modal modal-bottom sm:modal-middle">
       <div className="modal-box">{modalType}</div>
-    </div>
+    </dialog>
   );
 }
 
