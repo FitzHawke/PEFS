@@ -19,7 +19,7 @@ function Header() {
 	};
 
 	if (!user) {
-		return null;
+		return <div></div>;
 	}
 
 	return (
