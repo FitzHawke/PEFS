@@ -1,11 +1,12 @@
 import React from "react";
+import getNow from "../../utils/getNow";
 
 function Footer() {
 	return (
 		<footer className="footer bg-neutral text-neutral-content items-center p-4">
 			<div className="grid-flow-col items-center">
 				<h1 className="font-logo mr-2 text-3xl font-bold">PEFS</h1>
-				<p>Copyright © 2022 by FitzHawke - All rights reserved</p>
+				<p>Copyright © {getNow.currYear()} by FitzHawke - All rights reserved</p>
 			</div>
 			<div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
 				<a href="https://github.com/FitzHawke/PEFS">

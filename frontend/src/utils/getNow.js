@@ -32,10 +32,13 @@ const currDate = () => {
 	return `${year}-${month}-${day}`;
 };
 
+const currYear = () => new Date().getFullYear()
+
 const getNow = {
 	currTime,
 	offSet,
 	currDate,
+	currYear
 };
 
 export default getNow;
